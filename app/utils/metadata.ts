@@ -1,7 +1,7 @@
 import { ResolvingMetadata } from 'next';
 import { Metadata } from "../types/index.t";
-import { createTranslator } from 'next-intl';
-import { getLocaleMessages } from './messages';
+import { getTranslations } from 'next-intl/server';
+import { getLocaleMessages } from '@/app/utils/messages';
 
 import { headers } from 'next/headers';
 import { paths } from '../constants/paths';
@@ -13,19 +13,17 @@ export async function generateMetadata(
   
     const {locale} = params;
     const messages = await getLocaleMessages(locale);
-    const t = createTranslator({locale, messages});
-
     const headersList = headers();
     // read the custom x-url header
     const pathname = headersList.get('x-url') || "";
     const path = getPathByPathName(pathname);
-
-    const title = t(`Index.Path.${path}.title`)
+    const t = await getTranslations(`Index.Metadata`);
+    const title = t('title')
     return {
       title: {
         default: title,
       },
-      description:t('Index.Metadata.description'),
+      description:t('description'),
 /*       robots: { index: true, follow: true },
       manifest: `/favicon/site.webmanifest`, */
       // authors: [

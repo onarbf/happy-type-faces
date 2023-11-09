@@ -1,24 +1,24 @@
 {
     "Index": {
       "Metadata":{
-        "title": "Nexity",
-        "description": "Una plantilla para montar rápido blogs y webs",
-        "siteName": "nexity.io"
+        "title": "Happy Type Faces!",
+        "description": "",
+        "siteName": ""
       },
       "Path":{
         "Home":{
           "title": "",
-          "header": "Bienvenido a mi blog!",
-          "subheader": "Esta es mi parte favorita de internet, montar blogs desde cero para nunca usarlos!"
+          "header": "",
+          "subheader": ""
         },
         "About":{
-          "title": "Sobre Mí"
+          "title": ""
         }
       },
       "Component":{
         "PostsList":{
           "PostsListItem":{
-            "title": "Título"
+            "title": ""
           }
         }
       }

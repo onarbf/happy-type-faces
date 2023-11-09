@@ -11,6 +11,5 @@ export async function getLocaleMessages(locale:string): Promise<AbstractIntlMess
     }else{
       messages = defaultMessages;
     }
-    
     return messages;
   }
