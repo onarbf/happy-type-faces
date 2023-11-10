@@ -12,7 +12,7 @@ export  default function Index() {
   const [actualPhase, setActualPhase] = useState(1)
 
   
-
+console.log(typeof inputText)
   
   
   useEffect(() => {
@@ -105,8 +105,8 @@ export  default function Index() {
       <div className="col-span-21 grid grid-cols-24">
         <div className="col-span-24 min-h-[6rem] border px-[2.5rem]">
           <p>Escribe tu texto:</p>
-          <div className="text-[3rem]">
-            {inputText}
+          <div className="py-2 text-[3rem]">
+            <input className="border-b-[2px] border-pinky " type="text" value={`${inputText}`} />
           </div>
         </div>
         <div className="col-span-24 min-h-[18rem] border px-[2.5rem] md:col-span-16">

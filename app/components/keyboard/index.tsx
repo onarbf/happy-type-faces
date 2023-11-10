@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react"
+import {  useState } from "react"
 import Key from "./key";
 
 export default function KeyBoard({keysPressed,actualPhase}:any){
@@ -41,7 +41,7 @@ return (phase === actualPhase) && 'bg-blue-300';
             <Key size={6}  isKeyPressed={isKeyPressed('Minus')} isPhaseActive={isPhaseActive(0)} />
             <Key size={6}  isKeyPressed={isKeyPressed('Equal')} isPhaseActive={isPhaseActive(0)} />
             <Key size={6}  isKeyPressed={isKeyPressed('Backspace')} isPhaseActive={isPhaseActive(0)} />
-
+            
         </div>
         <div className="mt-1 grid aspect-[100/5] grid-cols-87 gap-1 [&>div]:border-2" tabIndex={0}>
             <div className={`${(keysPressed['Tab']) && "bg-red-300"} col-[_span_9] `}/> {/* //Q */}
@@ -58,9 +58,10 @@ return (phase === actualPhase) && 'bg-blue-300';
             <Key size={6}  isKeyPressed={isKeyPressed('BracketLeft')} isPhaseActive={isPhaseActive(0)} />
             <Key size={6}  isKeyPressed={isKeyPressed('BracketRight')} isPhaseActive={isPhaseActive(0)} />
             <Key size={6}  isKeyPressed={isKeyPressed('Enter')} isPhaseActive={isPhaseActive(0)} />
+            
         </div>
         <div className="mt-1 grid aspect-[100/5] grid-cols-87 gap-1 [&>div]:border-2 ">
-        <Key size={11}  isKeyPressed={isKeyPressed('CapsLock')} isPhaseActive={isPhaseActive(0)} />
+        <Key size={12}  isKeyPressed={isKeyPressed('CapsLock')} isPhaseActive={isPhaseActive(0)} />
         <Key size={6}  isKeyPressed={isKeyPressed('KeyA')} isPhaseActive={isPhaseActive(2) || isPhaseActive(4)}  />
         <Key size={6}  isKeyPressed={isKeyPressed('KeyS')} isPhaseActive={isPhaseActive(2) || isPhaseActive(4)}  />
         <Key size={6}  isKeyPressed={isKeyPressed('KeyD')} isPhaseActive={isPhaseActive(2) || isPhaseActive(4)}  />
@@ -73,10 +74,10 @@ return (phase === actualPhase) && 'bg-blue-300';
         <Key size={6}  isKeyPressed={isKeyPressed('Semicolon')} isPhaseActive={isPhaseActive(2) || isPhaseActive(4)}  />
         <Key size={6}  isKeyPressed={isKeyPressed('Quote')} isPhaseActive={isPhaseActive(2) || isPhaseActive(4)}  />
         <Key size={6}  isKeyPressed={isKeyPressed('Backslash')} isPhaseActive={isPhaseActive(2) || isPhaseActive(4)}  />
-        <Key size={4}  isKeyPressed={isKeyPressed('Enter')} isPhaseActive={isPhaseActive(0)} />
+        <Key size={3}  isKeyPressed={isKeyPressed('Enter')} isPhaseActive={isPhaseActive(0)}  />
         </div>
         <div className="mt-1 grid aspect-[100/5] grid-cols-87 gap-1 [&>div]:border-2">
-        <Key size={10}  isKeyPressed={isKeyPressed('ShiftLeft')} isPhaseActive={isPhaseActive(3) || isPhaseActive(4) || isPhaseActive(5)} />
+        <Key size={9}  isKeyPressed={isKeyPressed('ShiftLeft')} isPhaseActive={isPhaseActive(3) || isPhaseActive(4) || isPhaseActive(5)} />
         <Key size={6}  isKeyPressed={isKeyPressed('IntBackslash')} isPhaseActive={isPhaseActive(0)} />
         <Key size={6}  isKeyPressed={isKeyPressed('KeyZ')} isPhaseActive={isPhaseActive(2) || isPhaseActive(5)}  />
         <Key size={6}  isKeyPressed={isKeyPressed('KeyX')} isPhaseActive={isPhaseActive(2) || isPhaseActive(5)}  />
@@ -88,7 +89,7 @@ return (phase === actualPhase) && 'bg-blue-300';
         <Key size={6}  isKeyPressed={isKeyPressed('Comma')} isPhaseActive={isPhaseActive(2) || isPhaseActive(5)}  />
         <Key size={6}  isKeyPressed={isKeyPressed('Period')} isPhaseActive={isPhaseActive(2) || isPhaseActive(5)}  />
         <Key size={6}  isKeyPressed={isKeyPressed('Slash')} isPhaseActive={isPhaseActive(2) || isPhaseActive(5)}  />
-        <Key size={11}  isKeyPressed={isKeyPressed('ShiftRight')} isPhaseActive={isPhaseActive(0)} />
+        <Key size={12}  isKeyPressed={isKeyPressed('ShiftRight')} isPhaseActive={isPhaseActive(0)}  />
         </div>
         <div className="mt-1 grid aspect-[100/5] grid-cols-87 gap-1 [&>div]:border-2">
             <div className={`${(keysPressed['ControlLeft'] ) && "bg-red-300"} col-[_span_6] `}/>
@@ -106,7 +107,5 @@ return (phase === actualPhase) && 'bg-blue-300';
             </div>
             <div className={`${(keysPressed['ArrowRight'] ) && "bg-red-300"} col-[_span_6] `}/>
         </div>
-         
-         
     </div>)
 }
