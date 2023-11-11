@@ -19,6 +19,7 @@ const config: Config = {
     },
     gridTemplateColumns: {
       // Simple 16 column grid
+      '4': 'repeat(4, minmax(0, 1fr))',
       '24': 'repeat(24, minmax(0, 1fr))',
       '87': 'repeat(87, minmax(0, 1fr))',
     },
