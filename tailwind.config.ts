@@ -10,10 +10,10 @@ const config: Config = {
   theme: {
     extend:{
       colors:{
-        pinky: '#e002a2'
+        pinky: {DEFAULT: '#F05768', 300:'#FBCDD2'}
       },
       fontFamily: {
-        garamond: ['var(--garamond)','EB Garamond','serif'],
+        garamond: ['var(--happy-type-faces)','Libre Caslon Text','serif'],
         happy: ['var(--happy-type-faces)','HappyTypeFaces', 'cursive'],
       },
     },

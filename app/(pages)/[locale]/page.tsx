@@ -2,6 +2,7 @@
 import KeyBoard from '@/app/components/keyboard';
 import SideBar from '@/app/components/sidebar';
 import { keys } from '@/app/constants/keys';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -9,19 +10,20 @@ import { useEffect, useState } from 'react';
 export  default function Index() {
   const [inputText, setInputText] = useState('');
   const [keysPressed, setKeysPressed] = useState({});
-  const [actualPhase, setActualPhase] = useState(1)
+  const [actualPhase, setActualPhase] = useState(1);
 
-  
-console.log(typeof inputText)
-  
+  const textsPhases : any = {
+    textPhase1: "1- Elije una tecla de la fila de los números o la primera fila de letras",
+    textPhase2: "2- Ahora una letra de la segunda o la tercera fila para añadir el segundo ojo",
+    textPhase3: "3- Vamos con las mayúsculas de la primera fila, ya verás que naricilla más mona!",
+    textPhase4: "4- Añade una boca con las mayúsculas de la segunda fila",
+    textPhase5: "5- Ya lo tienes! Solo falta la cara. Usa las mayúsculas de la tercera fila."
+  }
   
   useEffect(() => {
-    console.log('actualPhase',actualPhase)
     const acceptedValues = {
       phase1: [keys.q,keys.w,keys.e,keys.r,keys.t,keys.y,keys.u,keys.i,keys.o,keys.p,keys[1],keys[2],keys[3],keys[4],keys[5],keys[6],keys[7],keys[8],keys[9],keys[0]],
       phase2: [keys.a,keys.s,keys.d,keys.f,keys.g,keys.h,keys.j,keys.k,keys.l,keys.ñ,keys.z,keys.x,keys.c,keys.v,keys.b,keys.n,keys.m,keys[8],keys[9],keys[0]],
-      phase3: [],
-      phase4: []
     }
 
     const updatePhase = ()=>{
@@ -99,17 +101,26 @@ console.log(typeof inputText)
   return (
   <section className="mx-[2.5vw]">
     <div className="mt-[3rem] grid grid-cols-24 gap-4">
-      <div className="col-span-3">
+      <div className="col-span-24 md:col-span-3">
         <SideBar/>
       </div>
-      <div className="col-span-21 grid grid-cols-24">
-        <div className="col-span-24 min-h-[6rem] border px-[2.5rem]">
-          <p>Escribe tu texto:</p>
+      <div className="col-span-24 grid grid-cols-24 md:col-span-21">
+        <div className="col-span-24 min-h-[6rem] md:col-span-16 md:px-[2.5rem]">
+          <p className='pt-3'>Escribe tu texto:</p>
           <div className="py-2 text-[3rem]">
-            <input className="border-b-[2px] border-pinky " type="text" value={`${inputText}`} />
+            <input className="border-b-[2px] border-pinky " type="text" value={`${inputText}`} readOnly/>
           </div>
         </div>
-        <div className="col-span-24 min-h-[18rem] border px-[2.5rem] md:col-span-16">
+
+        <div className="col-span-24 py-3  md:col-span-8">
+          <main>
+            <div className="flex gap-2 md:items-center">
+             Descargar <Link href="#"> <Image src="./icons/download-icon.svg" width="20" height="20" alt='download icon'/></Link>
+            </div>
+          </main>
+        </div>
+
+        <div className="col-span-24 min-h-[18rem] px-[2.5rem] md:col-span-16">
         <div className=''>Ajustes</div>
         <div className="break-all font-happy text-[12rem]">
             {inputText}
@@ -118,10 +129,11 @@ console.log(typeof inputText)
         <div className="col-span-24 md:col-span-8">
           <main>
             <div>
-              <Link href="#">Descargar </Link>
-            </div>
-            <div>
+              <div>Gramática</div>
               <KeyBoard keysPressed={keysPressed} actualPhase={actualPhase}/>
+              <div className="p-4">
+                {textsPhases[`textPhase${actualPhase}`]}
+              </div>
             </div>
           </main>
         </div>
