@@ -13,7 +13,7 @@ const config: Config = {
         pinky: {DEFAULT: '#F05768', 300:'#FBCDD2'}
       },
       fontFamily: {
-        garamond: ['var(--happy-type-faces)','Libre Caslon Text','serif'],
+        libre: ['var(--libre-caslon-text)','Libre Caslon Text','serif'],
         happy: ['var(--happy-type-faces)','HappyTypeFaces', 'cursive'],
       },
     },

@@ -28,15 +28,15 @@ export default function Proyecto() {
               <div className="col-span-24 md:col-span-6">
                 Glifos
               </div>
-              <div className="col-span-24 md:col-span-16">
+              <div className="col-span-24 mt-2 md:col-span-16">
 
-                <div className="flex w-[100%] gap-4">
-                  <div className="flex aspect-square w-[100%] md:w-[40%] ">
-                    <LetterExpositor rows={4} values={['1','2','3','4','5','6','7','8','9','q','w','e','r','t','y','u']}/>
+                <div className="flex w-[100%] flex-col gap-4 md:flex-row">
+                  <div className=" flex aspect-square w-[100%] md:w-[40%]">
+                    <LetterExpositor rows={0} values={['1','2','3','4','5','6','7','8','9','0','q','w','e','r','t','y','u','i','o','']}/>
                   </div>
-                  <div className="flex aspect-square w-[100%] md:w-[40%]">
-                    {/* <LetterExpositor rows={4}/> */}
-                  </div>  
+                  <div className=" flex aspect-square w-[100%] md:w-[40%]">
+                  <LetterExpositor type={1} values={['a','s','d','f','g','h','j','k','l','ñ','z','x','c','v','b','n','m',',','.','']}/>
+                  </div> 
                 </div>
 
                 <div className="mt-2 flex w-[100%] gap-4">
@@ -56,7 +56,7 @@ export default function Proyecto() {
              {/* COLuMN * TITLE */}
             <div className="col-span-24 grid grid-cols-24">
               <div className="col-span-24 md:col-span-6 ">
-                Metatipografía
+                Proyecto
               </div>
               <div className="col-span-24 md:col-span-16">
                 <p><i>Happy(type)faces</i> es un sistema modular que mediante combinaciones de teclado nos permite generar ilustraciones de diferentes expresiones. Una metatipografía utiliza el modelo de escritura y las posibilidades de los programas para generar un sistema que permita combinar diferentes piezas mediante una serie de reglas o gramática con el objetivo de generar una tipografía que en vez de escribir palabras te permite formar diferentes elementos gráficos, ya sean ilustraciones, símbolos, etc.</p>
