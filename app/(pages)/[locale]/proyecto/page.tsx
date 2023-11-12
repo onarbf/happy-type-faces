@@ -54,7 +54,7 @@ export default function Proyecto() {
               <div className="mt-4 flex flex-col gap-4 md:flex-row">
                 <div className="flex-col md:w-[45%]">
                   <div className=" flex aspect-[4/3] ">
-                    <LetterExpositor type={1} values={['Q','W','E','R','T','Y','U','I','O','']}/>
+                    <LetterExpositor type={0} values={['Q','W','E','R','T','Y','U','I','O','']}/>
                   </div>
                   <div className="mt-2">Nariz</div>
                 </div>  
@@ -64,7 +64,7 @@ export default function Proyecto() {
               <div className="mt-4 flex flex-col gap-4 md:flex-row">
                 <div className="flex-col md:w-[45%]">
                   <div className=" flex aspect-[4/3] ">
-                    <LetterExpositor type={0} values={['1','2','3','4','5','6','7','8','9','0','q','w']}/>
+                    <LetterExpositor type={1} values={['A','S','D','F','G','H','J','K','L','Ñ','q','w']}/>
                   </div>
                   <div className="mt-2">Boca</div>
                 </div> 

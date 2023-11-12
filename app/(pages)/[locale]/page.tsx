@@ -123,7 +123,7 @@ export  default function Index() {
         <div className="col-span-24 min-h-[6rem] md:col-span-16 md:px-[2.5rem]">
           <p className='pt-3'>Escribe tu texto:</p>
           <div className="py-2 text-[3rem]">
-            <input className="border-b-[2px] border-pinky " type="text" value={`${inputText}`} readOnly/>
+            <input className="max-w-[100%] border-b-[2px] border-pinky" type="text" value={`${inputText}`} readOnly/>
           </div>
         </div>
 
@@ -135,7 +135,7 @@ export  default function Index() {
           </main>
         </div>
 
-        <div className="col-span-24 min-h-[18rem] px-[2.5rem] md:col-span-16">
+        <div className="col-span-24 min-h-[18rem] px-0 md:col-span-16 md:px-[2.5rem]">
         <div className=''>Ajustes</div>
         <div className="break-all font-happy text-[12rem]">
             {inputText}
