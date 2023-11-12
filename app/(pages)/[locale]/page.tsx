@@ -50,26 +50,32 @@ export  default function Index() {
       if(actualPhase === 1 && acceptedValues.phase1.includes(event.key)){
         setInputText(prevInput=>(prevInput + event.key));
         updatePhase()
+        return
       }
      
       if(actualPhase === 2 && acceptedValues.phase2.includes(event.key)){
         setInputText(prevInput=>(prevInput + event.key));
         updatePhase()
+        return
       }
   
       if(actualPhase === 3 && event.key === event.key.toUpperCase() && acceptedValues.phase1.slice(0,10).includes(event.key.toLowerCase())){  
         setInputText(prevInput=>(prevInput + event.key));
         updatePhase()
+        return
       }
   
       if(actualPhase === 4 && event.key === event.key.toUpperCase() && acceptedValues.phase2.slice(0,10).includes(event.key.toLowerCase())){  
         setInputText(prevInput=>(prevInput + event.key));
         updatePhase()
+        return
       }
       if(actualPhase === 5 && event.key === event.key.toUpperCase() && acceptedValues.phase2.slice(10,acceptedValues.phase2.length-1).includes(event.key.toLowerCase())){  
         setInputText(prevInput=>(prevInput + event.key));
         updatePhase()
+        return
       }
+
     }
 
     const handleKeyDown = (event: any) => {
