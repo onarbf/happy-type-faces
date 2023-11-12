@@ -136,7 +136,7 @@ export default function Proyecto() {
             <main>
             <div className="flex flex-col gap-1">
                 <h4> Licencia</h4>
-                <p>Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</p>
+                <p><u>Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</u></p>
               </div>
               <br/>
               <div className="mt-4 flex flex-col gap-1">

@@ -11,7 +11,7 @@ export  default function Index() {
   const [inputText, setInputText] = useState('');
   const [keysPressed, setKeysPressed] = useState({});
   const [actualPhase, setActualPhase] = useState(1);
-
+  const [isWrongType, setIsWrongType] = useState(false);
   const textsPhases : any = {
     textPhase1: "1- Elije una tecla de la fila de los números o la primera fila de letras",
     textPhase2: "2- Ahora una letra de la segunda o la tercera fila para añadir el segundo ojo",
@@ -19,7 +19,16 @@ export  default function Index() {
     textPhase4: "4- Añade una boca con las mayúsculas de la segunda fila",
     textPhase5: "5- Ya lo tienes! Solo falta la cara. Usa las mayúsculas de la tercera fila."
   }
-  
+
+  useEffect(() => {
+    let timer: any;
+    if (isWrongType) {
+      timer = setTimeout(() => setIsWrongType(false), 3000); // Duración total de la animación
+    }
+
+    return () => clearTimeout(timer); // Limpiar el timer
+  }, [isWrongType]);
+
   useEffect(() => {
     const acceptedValues = {
       phase1: [keys.q,keys.w,keys.e,keys.r,keys.t,keys.y,keys.u,keys.i,keys.o,keys.p,keys[1],keys[2],keys[3],keys[4],keys[5],keys[6],keys[7],keys[8],keys[9],keys[0]],
@@ -75,7 +84,7 @@ export  default function Index() {
         updatePhase()
         return
       }
-
+      setIsWrongType(true)
     }
 
     const handleKeyDown = (event: any) => {
@@ -120,7 +129,7 @@ export  default function Index() {
 
         <div className="col-span-24 py-3  md:col-span-8">
           <main>
-            <div className="flex gap-2 md:items-center">
+            <div  onClick={()=>setIsWrongType(true)} className="flex gap-2 md:items-center">
              Descargar <Link href="#"> <Image src="./icons/download-icon.svg" width="20" height="20" alt='download icon'/></Link>
             </div>
           </main>
@@ -136,7 +145,8 @@ export  default function Index() {
           <main>
             <div>
               <div>Gramática</div>
-              <KeyBoard keysPressed={keysPressed} actualPhase={actualPhase}/>
+              <div className={isWrongType ? 'animate-fade-in' : 'hidden animate-fade-out'}>Introduce la tecla correcta!</div>
+              <KeyBoard keysPressed={keysPressed} actualPhase={actualPhase} isWrongType={isWrongType}/>
               <div className="p-4">
                 {textsPhases[`textPhase${actualPhase}`]}
               </div>

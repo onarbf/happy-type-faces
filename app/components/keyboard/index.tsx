@@ -1,14 +1,16 @@
 'use client'
-import {  useState } from "react"
 import Key from "./key";
+import { motion } from "framer-motion"
 
-export default function KeyBoard({keysPressed,actualPhase}:any){
+export default function KeyBoard({keysPressed,actualPhase, isWrongType}:any){
     const isPhaseActive = (phase:number)=>{
         if(phase !== 0)
-return (phase === actualPhase) && '!border-pinky bg-pink-300';
+        return (phase === actualPhase) && '!border-pinky bg-pink-300';
     }
+
+
     const isKeyPressed = (key:string)=>keysPressed[key] && '!border-orange-900 !bg-orange-300';
-    return(<div className="flex flex-col p-2">
+    return(<div className={`flex flex-col p-2 ${isWrongType ? 'animate-wiggle' : ''}`}>
         <div className="mt-1 grid aspect-[100/3] grid-cols-87 gap-1 [&>div]:border-2 [&>div]:border-pink-300">
         <Key size={9}  isKeyPressed={isKeyPressed('Escape')} isPhaseActive={isPhaseActive(0)} />
         <Key size={6}  isKeyPressed={isKeyPressed('F1')} isPhaseActive={isPhaseActive(0)} />

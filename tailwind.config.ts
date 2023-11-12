@@ -16,6 +16,26 @@ const config: Config = {
         libre: ['var(--libre-caslon-text)','Libre Caslon Text','serif'],
         happy: ['var(--happy-type-faces)','HappyTypeFaces', 'cursive'],
       },
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'translateX(0px)' },
+          '25%, 75%': { transform: 'translateX(4px)' },
+          '50%': { transform: 'translateX(-4px)' },
+        },
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        fadeOut: {
+          '0%': { opacity: '1' },
+          '100%': { opacity: '0' },
+        },
+      },
+      animation: {
+        wiggle: 'wiggle 0.3s ease-in-out 2',
+        'fade-in': 'fadeIn 1s ease-in forwards',
+        'fade-out': 'fadeOut 1s ease-out forwards',
+      }
     },
     gridTemplateColumns: {
       // Simple 16 column grid
