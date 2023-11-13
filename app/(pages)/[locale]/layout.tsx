@@ -35,11 +35,12 @@ export default async function Layout({children, params: {locale}}: Layout) {
   if (!locales.includes(locale as any)) notFound();
   return (
     <html lang={locale} className={`text-[1.1rem] text-pinky ${happyTypeFaces.variable } ${libreCaslonText.variable} ${libreCaslonText.className}`}>
-      <body>
+      <body className="">
         <GlobalContextProvider>
-          <Header/>
-          {children}
-          <Footer/>
+            <Header/>
+            {children}
+            
+          <div className="h-[5vh] w-[100%]"><Footer/></div>
         </GlobalContextProvider>
       </body>
       

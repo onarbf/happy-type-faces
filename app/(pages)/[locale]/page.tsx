@@ -13,11 +13,11 @@ export  default function Index() {
   const [actualPhase, setActualPhase] = useState(1);
   const [isWrongType, setIsWrongType] = useState(false);
   const textsPhases : any = {
-    textPhase1: "1- Elije una tecla de la fila de los números o la primera fila de letras",
-    textPhase2: "2- Ahora una letra de la segunda o la tercera fila para añadir el segundo ojo",
-    textPhase3: "3- Vamos con las mayúsculas de la primera fila, ya verás que naricilla más mona!",
-    textPhase4: "4- Añade una boca con las mayúsculas de la segunda fila",
-    textPhase5: "5- Ya lo tienes! Solo falta la cara. Usa las mayúsculas de la tercera fila."
+    textPhase1: "1- Elije una tecla de la fila de los números o la primera fila de letras.",
+    textPhase2: "2- Ahora una letra de la segunda o la tercera fila para añadir el segundo ojo.",
+    textPhase3: "3- Vamos con las mayúsculas de la primera fila, ¡ya verás que naricilla más mona!",
+    textPhase4: "4- Añade una boca con las mayúsculas de la segunda fila.",
+    textPhase5: "5- ¡Ya lo tienes! Solo falta la cara. Usa las mayúsculas de la tercera fila."
   }
 
   useEffect(() => {
@@ -114,7 +114,7 @@ export  default function Index() {
     }
   },[actualPhase])
   return (
-  <section className="mx-[2.5vw]">
+  <section className="mx-[2.5vw] h-[80vh]">
     <div className="mt-[3rem] grid grid-cols-24 gap-4">
       <div className="col-span-24 md:col-span-3">
         <SideBar/>
@@ -123,19 +123,19 @@ export  default function Index() {
         <div className="col-span-24 min-h-[6rem] md:col-span-16 md:px-[2.5rem]">
           <p className='pt-3'>Escribe tu texto:</p>
           <div className="py-2 text-[3rem]">
-            <input className="max-w-[100%] border-b-[2px] border-pinky" type="text" value={`${inputText}`} readOnly/>
+            <input className="select:border-pinky max-w-[100%] rounded-md border-[2px] border-black pl-2 caret-pinky focus:border-pinky focus:outline-none" type="text" value={`${inputText}`}/>
           </div>
         </div>
 
         <div className="col-span-24 py-3  md:col-span-8">
           <main>
             <div  onClick={()=>setIsWrongType(true)} className="flex gap-2 md:items-center">
-             Descargar <Link href="#"> <Image src="./icons/download-icon.svg" width="20" height="20" alt='download icon'/></Link>
+             Descargar <Link href="#"> <Image src="./icons/download-icon.svg" width="14" height="14" alt='download icon'/></Link>
             </div>
           </main>
         </div>
 
-        <div className="col-span-24 min-h-[18rem] px-0 md:col-span-16 md:px-[2.5rem]">
+        <div className="col-span-24 mt-[42px] min-h-[18rem] px-0 md:col-span-16 md:px-[2.5rem]">
         <div className=''>Ajustes</div>
         <div className="break-all font-happy text-[12rem]">
             {inputText}
@@ -145,10 +145,10 @@ export  default function Index() {
           <main>
             <div>
               <div>Gramática</div>
-              <div className={isWrongType ? 'animate-fade-in' : 'hidden animate-fade-out'}>Introduce la tecla correcta!</div>
-              <KeyBoard keysPressed={keysPressed} actualPhase={actualPhase} isWrongType={isWrongType}/>
+              <div className="mt-[42px]"><KeyBoard keysPressed={keysPressed} actualPhase={actualPhase} isWrongType={isWrongType}/></div>
               <div className="p-4">
                 {textsPhases[`textPhase${actualPhase}`]}
+                <div className={isWrongType ? 'animate-fade-in' : 'hidden animate-fade-out'}>¡Introduce la tecla correcta!</div>
               </div>
             </div>
           </main>

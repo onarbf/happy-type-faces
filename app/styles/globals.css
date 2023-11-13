@@ -2,3 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.rosa-filter {
+    filter: brightness(0) saturate(100%) invert(30%) sepia(60%) saturate(6000%) hue-rotate(300deg) brightness(90%) contrast(90%);
+  }
