@@ -14,7 +14,7 @@ const GlobalContext = createContext<typeof contextObject>(contextObject)
 
 export const GlobalContextProvider = ({children}:{children: ReactNode})=>{
     const [theme, setTheme] = useState<typeof contextObject['theme']>(getCookie('NEXT_THEME'));
-
+    console.log(theme)
     return (<GlobalContext.Provider value={{theme, setTheme}}>
         {children}
     </GlobalContext.Provider>)

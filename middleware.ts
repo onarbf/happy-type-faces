@@ -15,8 +15,8 @@ response.headers.set('x-url', request.nextUrl.pathname)
 
 if(!request.cookies.get('NEXT_THEME')){
   response.cookies.set('NEXT_THEME','default')
-}
 
+}
 return response
 }
 

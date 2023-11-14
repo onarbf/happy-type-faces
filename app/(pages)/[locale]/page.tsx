@@ -16,6 +16,12 @@ export  default function Index() {
   const [keysPressed, setKeysPressed] = useState({});
   const [actualPhase, setActualPhase] = useState(1);
   const [isWrongType, setIsWrongType] = useState(false);
+  const [glyphSize, setGlyphSize] = useState(150);
+
+  const handleGlyphSize = (event: any) => {
+    const newGlyphSize = parseInt(event.target.value, 10);
+    setGlyphSize(newGlyphSize);
+  };
 
   const actualTheme = themes[theme!]
   const toggleTheme = ()=>{
@@ -144,10 +150,21 @@ export  default function Index() {
         </div>
 
         <div className="col-span-24 mt-[42px] min-h-[18rem] px-0 md:col-span-16 md:px-[2.5rem]">
-        <div className='flex gap-2'>Ajustes <button onClick={toggleTheme}>CHANGE THEME</button></div>
-        <div className="break-all font-happy text-[12rem]">
-            {inputText}
-          </div>
+        <div className='flex items-center gap-2'>
+          <span>Ajustes:</span>
+          <input  type="range"
+          className={`h-[2px] appearance-none rounded-xl ${actualTheme.rangeStyle}`}
+        id="range"
+        name="range"
+        min={100}
+        max={200}
+        step={0.001}
+        value={glyphSize}
+        onChange={handleGlyphSize}
+        />
+          <Image alt="change_theme" src={'/icons/contrast-icon.svg'} className={actualTheme.glyphFilter} width={16} height={16} onClick={toggleTheme} />
+        </div>
+        <div className={` break-all font-happy`} style={{fontSize: glyphSize}}>{inputText}</div>
         </div>
         <div className="col-span-24 md:col-span-8">
           <main>

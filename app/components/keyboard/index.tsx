@@ -9,9 +9,10 @@ export default function KeyBoard({keysPressed,actualPhase, isWrongType}:any){
         if(phase !== 0)
         return (phase === actualPhase) && themes[theme!].highlightedKey;
     }
-
-
-    const isKeyPressed = (key:string)=>{if(keysPressed[key]) return themes[theme!].keyPressed};
+    const isKeyPressed = (key:string)=>{
+        if(keysPressed[key])
+        return themes[theme!].keyPressed
+    };
     return(<div className={`flex flex-col p-2 ${isWrongType ? 'animate-wiggle' : ''}`}>
         <div className={`mt-1 grid aspect-[100/3] grid-cols-87 gap-1 [&>div]:border-2 ${themes[theme!].borderKey}`}>
         <Key size={9}  isKeyPressed={isKeyPressed('Escape')} isPhaseActive={isPhaseActive(0)} />

@@ -9,9 +9,12 @@ const themes: any = {
         inputBgColor: 'bg-white',
         caret: 'caret-pinky ',
         bgCheckboxColor: 'bg-pinky',
-        highlightedKey: '!border-pinky bg-pink-300',
+        highlightedKey: '!border-pinky !bg-pink-300',
         borderKey: '[&>div]:border-pink-300 [&>div]:text-white',
-        keyPressed: '!border-orange-900 bg-orange-300'
+        keyPressed: '!border-orange-900 !bg-orange-300',
+        glyphExpositor: 'border-pinky hover:bg-pinky hover:text-white',
+        glyphFilter: 'pink-filter',
+        rangeStyle: 'bg-black accent-pinky'
     },
     dark:{
         textColor: 'text-white',
@@ -25,7 +28,10 @@ const themes: any = {
         bgCheckboxColor: 'bg-white',
         highlightedKey: '!border-white bg-pink-800 [&>div]:text-white',
         borderKey: '[&>div]:border-white [&>div]:text-black',
-        keyPressed: '!border-orange-900 bg-orange-300 [&>div]:text-white'
+        keyPressed: '!border-orange-900 !bg-orange-300 [&>div]:text-white',
+        glyphExpositor: 'border-white hover:bg-white hover:text-pinky',
+        glyphFilter: 'white-filter',
+        rangeStyle: 'bg-white accent-pinky'
     },
 }
 
