@@ -2,22 +2,30 @@
 import KeyBoard from '@/app/components/keyboard';
 import SideBar from '@/app/components/sidebar';
 import { keys } from '@/app/constants/keys';
+import themes from '@/app/constants/themes';
+import { useGlobalContext } from '@/app/context/store';
+import { textsPhases } from '@/app/context/textPhases';
+import { setCookie } from '@/app/utils/cookies';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-
 export  default function Index() {
+  const {theme, setTheme} = useGlobalContext();
   const [inputText, setInputText] = useState('');
   const [keysPressed, setKeysPressed] = useState({});
   const [actualPhase, setActualPhase] = useState(1);
   const [isWrongType, setIsWrongType] = useState(false);
-  const textsPhases : any = {
-    textPhase1: "1- Elije una tecla de la fila de los números o la primera fila de letras.",
-    textPhase2: "2- Ahora una letra de la segunda o la tercera fila para añadir el segundo ojo.",
-    textPhase3: "3- Vamos con las mayúsculas de la primera fila, ¡ya verás que naricilla más mona!",
-    textPhase4: "4- Añade una boca con las mayúsculas de la segunda fila.",
-    textPhase5: "5- ¡Ya lo tienes! Solo falta la cara. Usa las mayúsculas de la tercera fila."
+
+  const actualTheme = themes[theme!]
+  const toggleTheme = ()=>{
+    if(theme === 'dark'){
+      setCookie({name:'NEXT_THEME',value:'default', days:60});
+      setTheme('default')
+    }else{
+      setCookie({name:'NEXT_THEME',value:'dark', days:60});
+      setTheme('dark')
+    }
   }
 
   useEffect(() => {
@@ -114,7 +122,7 @@ export  default function Index() {
     }
   },[actualPhase])
   return (
-  <section className="mx-[2.5vw] h-[80vh]">
+  <section className={`h-[80vh] px-[2.5vw]`}>
     <div className="mt-[3rem] grid grid-cols-24 gap-4">
       <div className="col-span-24 md:col-span-3">
         <SideBar/>
@@ -123,7 +131,7 @@ export  default function Index() {
         <div className="col-span-24 min-h-[6rem] md:col-span-16 md:px-[2.5rem]">
           <p className='pt-3'>Escribe tu texto:</p>
           <div className="py-2 text-[3rem]">
-            <input className="select:border-pinky max-w-[100%] rounded-md border-[2px] border-black pl-2 caret-pinky focus:border-pinky focus:outline-none" type="text" value={`${inputText}`}/>
+            <input className={`select:border-pinky max-w-[100%] rounded-md border-[2px] pl-2 focus:outline-none ${actualTheme.inputBorder} ${actualTheme.caret} ${actualTheme.inputTextColor} ${actualTheme.inputBgColor}`} type="text" value={`${inputText}` } readOnly/>
           </div>
         </div>
 
@@ -136,7 +144,7 @@ export  default function Index() {
         </div>
 
         <div className="col-span-24 mt-[42px] min-h-[18rem] px-0 md:col-span-16 md:px-[2.5rem]">
-        <div className=''>Ajustes</div>
+        <div className='flex gap-2'>Ajustes <button onClick={toggleTheme}>CHANGE THEME</button></div>
         <div className="break-all font-happy text-[12rem]">
             {inputText}
           </div>

@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 
-.rosa-filter {
-    filter: brightness(0) saturate(100%) invert(30%) sepia(60%) saturate(6000%) hue-rotate(300deg) brightness(90%) contrast(90%);
+.pink-filter {
+    filter: brightness(0) saturate(100%) invert(80%) sepia(80%) saturate(6000%) hue-rotate(300deg) brightness(90%) contrast(90%);
   }
+
+.white-filter {
+  filter: brightness(0) saturate(100%) invert(100%);
+}

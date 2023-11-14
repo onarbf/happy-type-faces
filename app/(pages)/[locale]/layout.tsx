@@ -1,7 +1,6 @@
 import '@/app/styles/globals.css'
 import Footer from '@/app/components/footer';
 import { Layout} from '@/app/types/index.t';
-
 import { locales } from '@/app/constants/locale';
 import { notFound } from 'next/navigation';
 import { GlobalContextProvider } from '@/app/context/store';
@@ -9,7 +8,7 @@ import { GlobalContextProvider } from '@/app/context/store';
 import { Libre_Caslon_Text } from 'next/font/google'
 import localFont from 'next/font/local'
 import Header from '@/app/components/header';
-
+import ThemeProvider from '@/app/components/theme-provider';
 const libreCaslonText = Libre_Caslon_Text({
   weight: ['400','700'],
   subsets: ['latin'],
@@ -34,13 +33,15 @@ export function generateStaticParams() {
 export default async function Layout({children, params: {locale}}: Layout) {
   if (!locales.includes(locale as any)) notFound();
   return (
-    <html lang={locale} className={`text-[1.1rem] text-pinky ${happyTypeFaces.variable } ${libreCaslonText.variable} ${libreCaslonText.className}`}>
-      <body className="">
+    <html lang={locale} className={`text-[1.1rem] ${happyTypeFaces.variable } ${libreCaslonText.variable} ${libreCaslonText.className}`}>
+      <body className="flex-col bg-red-300">
         <GlobalContextProvider>
+          <ThemeProvider>
             <Header/>
             {children}
-            
-          <div className="h-[5vh] w-[100%]"><Footer/></div>
+            <div className="h-[10vh] w-[100%]  grow"><Footer/></div>
+          </ThemeProvider>
+
         </GlobalContextProvider>
       </body>
       

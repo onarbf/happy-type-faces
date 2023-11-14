@@ -1,6 +1,11 @@
+'use client'
+
+import themes from "@/app/constants/themes";
+import { useGlobalContext } from "@/app/context/store";
 
 export default function Header(){
-    return(<header className="mx-[2.5vw] mt-[2.5vh] h-[6vh] text-[1.3rem] font-bold text-pinky">
+    const {theme} = useGlobalContext();
+    return(<header className={`h-[6vh] px-[2.5vw] pt-[2.5vh] text-[1.3rem] font-bold ${themes[theme!].textColor}`}>
             Hapy <span className="font-normal italic">(Type)</span> Faces
         </header>)
 }
