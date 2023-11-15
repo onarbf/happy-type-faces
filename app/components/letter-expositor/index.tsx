@@ -1,3 +1,4 @@
+'use client'
 import Glyph from "./glyph";
 
 export default function LetterExpositor({ values, facePart }: any) {

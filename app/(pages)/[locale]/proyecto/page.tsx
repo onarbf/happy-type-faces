@@ -1,11 +1,27 @@
+'use client'
 import LetterExpositor from "@/app/components/letter-expositor";
 import SideBar from "@/app/components/sidebar";
+import Lottie from 'react-lottie-player'
 
+import cuadratin from '@/app/animations/cuadratin.json'
+import teclado from '@/app/animations/teclado.json'
+import ligaduras1 from '@/app/animations/ligaduras01.json'
+import ligaduras2 from '@/app/animations/ligaduras02.json'
+import { motion } from "framer-motion"
 
 export default function Proyecto() {
-  return ( <section className="mx-[2.5vw]">
+  const variants = {
+    hidden: { opacity: 0, y:'20px' },
+    visible: { opacity: 1, y:'0' },
+  }
+
+  return ( <motion.section className="mx-[2.5vw]"
+  initial="hidden"
+  animate="visible"
+  variants={variants}
+  transition={{ duration: 0.8 }}>
       <div className="mt-[3rem] grid grid-cols-24 gap-4">
-        <div className="col-span-24 md:col-span-3">
+        <div className="col-span-24 hidden md:col-span-3 md:block">
           <SideBar />
         </div>
         {/* COl 2 */}
@@ -68,13 +84,6 @@ export default function Proyecto() {
                   </div>
                   <div className="mt-2">Boca</div>
                 </div> 
-
-                {/* <div className="flex-col md:w-[45%]">
-                  <div className=" flex aspect-[4/3] ">
-                    <LetterExpositor type={1}  facePart={'mouth'} values={['a','s','d','f','g','h','j','k','l','ñ','z','x']}/>
-                  </div>
-                </div>  */}
-
               </div>
 
               <div className="mt-4 flex flex-col gap-4 md:flex-row">
@@ -110,6 +119,14 @@ export default function Proyecto() {
               <div className="col-span-24 md:col-span-16">
                 <p>Todos los cajetines de los diferentes glifos tienen las mismas dimensiones, 1.000 x 1.000px. Al tener la misma superficie nos permite aplicar un <i>kerning</i> negativo del -100% a los diferentes grupos permitiendo la superposición de las diferentes partes del cuerpo. </p>
                 <p>Una vez establecidas las dimensiones del cuadratín mediante un esquema se define la posición que ocupará los elementos principales de tu tipografía, en este caso se dividió el cajetín en cinco partes: ojo derecho, ojo izquierdo, nariz, boca y forma de la cara. Dentro de cada grupo las piezas solo pueden ocupar el área que se había asignado de forma que al aplicar el kerning negativo se superpongan correctamente y permita la combinación con los diferentes caracteres.</p>
+                <div className="flex items-center justify-center py-8">
+                  <Lottie
+                    loop
+                    animationData={cuadratin}
+                    play
+                    className="aspect-square w-[40%] "
+                  />
+                </div>
               </div>
             </div>
             <div className="col-span-24 mt-4 grid grid-cols-24">
@@ -119,6 +136,14 @@ export default function Proyecto() {
               <div className="col-span-24  md:col-span-16">
                 <p>Un elemento fundamental a la hora de generar una metatipografía es definir la disposición de los glifos en el teclado, en este paso se determinará las reglas o gramatica de tu fuente. Al ser un sistema que no estamos acostumbrados a usar debemos pensar en un orden que el usuario pueda asimilar de la forma más sencilla posible.</p>
                 <p>Durante el taller se establecio una fila del teclado por cada grupo, a medida que aumentaron los glifos este sistema se fue quedando pequeño de forma que tocó repensar el sistema manteniendolo como base. Para ello se siguió usando las filas del teclado pero esta vez asignando una fila o dos dependiendo del numero de caracteres que contuviera cada grupo y combinandolo con un sistema de ligaduras con el fin de ofrecer la mayor combinación posible.</p>
+                <div className="flex items-center justify-center ">
+                  <Lottie
+                    loop
+                    animationData={teclado}
+                    play
+                    className=" w-[100%] "
+                  />
+                </div>
               </div>
             </div>
             <div className="col-span-24 mt-4 grid grid-cols-24">
@@ -128,6 +153,20 @@ export default function Proyecto() {
               <div className="col-span-24 md:col-span-16">
                 <p>Las ligaduras surgen de la combinación de varias letras previamente establecidas, como resultado obtenemos un glifo completamente nuevo. Estos comportamientos se definen previamente durante el proceso de digitalización, de forma que se genera una serie de reglas que establece que letras deben reaccionar al teclearse de una manera determinada.</p>
                 <p>Durante el desarrollo de la fuente me encontre que algunas partes del cuerpo tenia más piezas que los espacios que tenia asignados en el teclado, con el fin de encontrar espacio donde colocar esas piezas recurrí al sistema de ligaduras, de forma que en algunos caracteres existe la posibilidad de desbloquear variables pulsando repedimante la misma letra hasta 2 o 3 veces.</p>
+                <div className="flex items-center justify-center gap-2 py-8">
+                  <Lottie
+                    loop
+                    animationData={ligaduras1}
+                    play
+                    className="aspect-square w-[40%] "
+                  />
+                  <Lottie
+                    loop
+                    animationData={ligaduras2}
+                    play
+                    className="aspect-square w-[40%] "
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -156,5 +195,5 @@ export default function Proyecto() {
           </div>
         </div>
       </div>
-    </section>)
+    </motion.section>)
 }

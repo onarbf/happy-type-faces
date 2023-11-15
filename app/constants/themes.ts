@@ -14,7 +14,8 @@ const themes: any = {
         keyPressed: '!border-orange-900 !bg-orange-300',
         glyphExpositor: 'border-pinky hover:bg-pinky hover:text-white',
         glyphFilter: 'pink-filter',
-        rangeStyle: 'bg-black accent-pinky'
+        rangeStyle: 'bg-black accent-pinky',
+        hamburguerStyle: 'bg-pinky'
     },
     dark:{
         textColor: 'text-white',
@@ -31,7 +32,8 @@ const themes: any = {
         keyPressed: '!border-orange-900 !bg-orange-300 [&>div]:text-white',
         glyphExpositor: 'border-white hover:bg-white hover:text-pinky',
         glyphFilter: 'white-filter',
-        rangeStyle: 'bg-white accent-pinky'
+        rangeStyle: 'bg-white accent-pinky',
+        hamburguerStyle: 'bg-white'
     },
 }
 

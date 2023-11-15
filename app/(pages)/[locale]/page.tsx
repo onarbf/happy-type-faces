@@ -9,6 +9,8 @@ import { setCookie } from '@/app/utils/cookies';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { motion } from "framer-motion"
+
 
 export  default function Index() {
   const {theme, setTheme} = useGlobalContext();
@@ -16,13 +18,17 @@ export  default function Index() {
   const [keysPressed, setKeysPressed] = useState({});
   const [actualPhase, setActualPhase] = useState(1);
   const [isWrongType, setIsWrongType] = useState(false);
-  const [glyphSize, setGlyphSize] = useState(150);
+  const [glyphSize, setGlyphSize] = useState(250);
 
   const handleGlyphSize = (event: any) => {
     const newGlyphSize = parseInt(event.target.value, 10);
     setGlyphSize(newGlyphSize);
   };
 
+  const variants = {
+    hidden: { opacity: 0, y:'20px' },
+    visible: { opacity: 1, y:'0' },
+  }
   const actualTheme = themes[theme!]
   const toggleTheme = ()=>{
     if(theme === 'dark'){
@@ -127,17 +133,27 @@ export  default function Index() {
       window.addEventListener('keyup', handleKeyUp);
     }
   },[actualPhase])
+
+
   return (
-  <section className={`h-[80vh] px-[2.5vw]`}>
-    <div className="mt-[3rem] grid grid-cols-24 gap-4">
-      <div className="col-span-24 md:col-span-3">
+  <motion.section className={`mx-[2.5vw] min-h-[80vh]`}
+  initial="hidden"
+  animate="visible"
+  variants={variants}
+  transition={{ duration: 0.8 }}>
+    <div className="mt-[3rem] grid w-[100%] gap-4 md:grid-cols-24">
+      <div className="col-span-21 hidden md:col-span-3 md:block">
         <SideBar/>
       </div>
-      <div className="col-span-24 grid grid-cols-24 md:col-span-21">
+      <div className="col-span-21 grid grid-cols-24 md:col-span-21">
         <div className="col-span-24 min-h-[6rem] md:col-span-16 md:px-[2.5rem]">
           <p className='pt-3'>Escribe tu texto:</p>
-          <div className="py-2 text-[3rem]">
-            <input className={`select:border-pinky max-w-[100%] rounded-md border-[2px] pl-2 focus:outline-none ${actualTheme.inputBorder} ${actualTheme.caret} ${actualTheme.inputTextColor} ${actualTheme.inputBgColor}`} type="text" value={`${inputText}` } readOnly/>
+          <div className="py-2 ">
+            <input className={`select:border-pinky max-w-[100%] rounded-md border-[2px] pl-2 text-[3rem] focus:outline-none ${actualTheme.inputBorder} ${actualTheme.caret} ${actualTheme.inputTextColor} ${actualTheme.inputBgColor}`} type="text" value={`${inputText}` }/>
+            <div className="mt-4 block md:hidden">
+              {textsPhases[`textPhaseMobile${actualPhase}`]}
+              <div className={isWrongType ? 'animate-fade-in' : 'hidden animate-fade-out'}>¡Introduce la tecla correcta!</div>
+            </div>
           </div>
         </div>
 
@@ -157,16 +173,18 @@ export  default function Index() {
         id="range"
         name="range"
         min={100}
-        max={200}
+        max={600}
         step={0.001}
         value={glyphSize}
         onChange={handleGlyphSize}
         />
           <Image alt="change_theme" src={'/icons/contrast-icon.svg'} className={actualTheme.glyphFilter} width={16} height={16} onClick={toggleTheme} />
         </div>
-        <div className={` break-all font-happy`} style={{fontSize: glyphSize}}>{inputText}</div>
+        <div className={` max-w-[100%] break-all text-center font-happy md:text-left`} style={{fontSize: glyphSize}}>
+          {inputText}
+          </div>
         </div>
-        <div className="col-span-24 md:col-span-8">
+        <div className="col-span-24 hidden md:col-span-8 md:block">
           <main>
             <div>
               <div>Gramática</div>
@@ -180,5 +198,5 @@ export  default function Index() {
         </div>
       </div>
     </div>
-  </section>);
+  </motion.section>);
 } 

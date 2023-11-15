@@ -34,7 +34,7 @@ export default async function Layout({children, params: {locale}}: Layout) {
   if (!locales.includes(locale as any)) notFound();
   return (
     <html lang={locale} className={`text-[1.1rem] ${happyTypeFaces.variable } ${libreCaslonText.variable} ${libreCaslonText.className}`}>
-      <body className="flex-col bg-red-300">
+      <body className="flex-col">
         <GlobalContextProvider>
           <ThemeProvider>
             <Header/>
