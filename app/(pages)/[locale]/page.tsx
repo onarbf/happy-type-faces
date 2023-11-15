@@ -39,7 +39,10 @@ export  default function Index() {
       setTheme('dark')
     }
   }
-
+  const acceptedValues = {
+    phase1: [keys.q,keys.w,keys.e,keys.r,keys.t,keys.y,keys.u,keys.i,keys.o,keys.p,keys[1],keys[2],keys[3],keys[4],keys[5],keys[6],keys[7],keys[8],keys[9],keys[0]],
+    phase2: [keys.a,keys.s,keys.d,keys.f,keys.g,keys.h,keys.j,keys.k,keys.l,keys.ñ,keys.z,keys.x,keys.c,keys.v,keys.b,keys.n,keys.m,keys[8],keys[9],keys[0]],
+  }
   useEffect(() => {
     let timer: any;
     if (isWrongType) {
@@ -49,80 +52,75 @@ export  default function Index() {
     return () => clearTimeout(timer); // Limpiar el timer
   }, [isWrongType]);
 
+  const handleInput = (event: any)=>{
+    if(actualPhase === 1 && acceptedValues.phase1.includes(event.key)){
+      setInputText(prevInput=>(prevInput + event.key));
+      updatePhase()
+      return
+    }
+   
+    if(actualPhase === 2 && acceptedValues.phase2.includes(event.key)){
+      setInputText(prevInput=>(prevInput + event.key));
+      updatePhase()
+      return
+    }
+
+    if(actualPhase === 3 && event.key === event.key.toUpperCase() && acceptedValues.phase1.slice(0,10).includes(event.key.toLowerCase())){  
+      setInputText(prevInput=>(prevInput + event.key));
+      updatePhase()
+      return
+    }
+
+    if(actualPhase === 4 && event.key === event.key.toUpperCase() && acceptedValues.phase2.slice(0,10).includes(event.key.toLowerCase())){  
+      setInputText(prevInput=>(prevInput + event.key));
+      updatePhase()
+      return
+    }
+    if(actualPhase === 5 && event.key === event.key.toUpperCase() && acceptedValues.phase2.slice(10,acceptedValues.phase2.length-1).includes(event.key.toLowerCase())){  
+      setInputText(prevInput=>(prevInput + event.key));
+      updatePhase()
+      return
+    }
+    setIsWrongType(true)
+  }
+
+  const handleKeyDown = (event: any) => {
+    if(event.key.length === 1){
+      handleInput(event)
+    }
+    if( event.keyCode=== 8){
+      setInputText(prevInput=>{
+        return prevInput.slice(0,-1)});
+      backPhase();
+    }
+    setKeysPressed(prevKeys => ({ ...prevKeys, [event.code]: true })); 
+  };
+  const handleKeyUp = (event: any) => {
+    setKeysPressed(prevKeys => ({ ...prevKeys, [event.code]: false }));
+  };
+  const updatePhase = ()=>{
+    if(actualPhase === 5){
+      
+      setActualPhase(1)
+    }else{
+      setActualPhase(actualPhase+1);  
+    }
+  }
+
+  const backPhase = ()=>{
+    if(actualPhase === 1){
+      if(inputText.length === 0){
+        return
+      }
+      setActualPhase(5)
+      return
+    }
+      setActualPhase(actualPhase-1);  
+  }
+
+
   useEffect(() => {
-    const acceptedValues = {
-      phase1: [keys.q,keys.w,keys.e,keys.r,keys.t,keys.y,keys.u,keys.i,keys.o,keys.p,keys[1],keys[2],keys[3],keys[4],keys[5],keys[6],keys[7],keys[8],keys[9],keys[0]],
-      phase2: [keys.a,keys.s,keys.d,keys.f,keys.g,keys.h,keys.j,keys.k,keys.l,keys.ñ,keys.z,keys.x,keys.c,keys.v,keys.b,keys.n,keys.m,keys[8],keys[9],keys[0]],
-    }
-
-    const updatePhase = ()=>{
-      if(actualPhase === 5){
-        
-        setActualPhase(1)
-      }else{
-        setActualPhase(actualPhase+1);  
-      }
-    }
-
-    const backPhase = ()=>{
-      if(actualPhase === 1){
-        if(inputText.length === 0){
-          return
-        }
-        setActualPhase(5)
-        return
-      }
-        setActualPhase(actualPhase-1);  
-    }
-
-    const handleInput = (event: any)=>{
-      if(actualPhase === 1 && acceptedValues.phase1.includes(event.key)){
-        setInputText(prevInput=>(prevInput + event.key));
-        updatePhase()
-        return
-      }
-     
-      if(actualPhase === 2 && acceptedValues.phase2.includes(event.key)){
-        setInputText(prevInput=>(prevInput + event.key));
-        updatePhase()
-        return
-      }
-  
-      if(actualPhase === 3 && event.key === event.key.toUpperCase() && acceptedValues.phase1.slice(0,10).includes(event.key.toLowerCase())){  
-        setInputText(prevInput=>(prevInput + event.key));
-        updatePhase()
-        return
-      }
-  
-      if(actualPhase === 4 && event.key === event.key.toUpperCase() && acceptedValues.phase2.slice(0,10).includes(event.key.toLowerCase())){  
-        setInputText(prevInput=>(prevInput + event.key));
-        updatePhase()
-        return
-      }
-      if(actualPhase === 5 && event.key === event.key.toUpperCase() && acceptedValues.phase2.slice(10,acceptedValues.phase2.length-1).includes(event.key.toLowerCase())){  
-        setInputText(prevInput=>(prevInput + event.key));
-        updatePhase()
-        return
-      }
-      setIsWrongType(true)
-    }
-
-    const handleKeyDown = (event: any) => {
-      if(event.key.length === 1){
-        handleInput(event)
-      }
-      if( event.keyCode=== 8){
-        setInputText(prevInput=>{
-          return prevInput.slice(0,-1)});
-        backPhase();
-      }
-      setKeysPressed(prevKeys => ({ ...prevKeys, [event.code]: true })); 
-    };
-    const handleKeyUp = (event: any) => {
-      setKeysPressed(prevKeys => ({ ...prevKeys, [event.code]: false }));
-    };
-
-
+ 
     // Add event listener
     window.addEventListener('keydown', handleKeyDown);
     window.addEventListener('keyup', handleKeyUp);
@@ -149,7 +147,12 @@ export  default function Index() {
         <div className="col-span-24 min-h-[6rem] md:col-span-16 md:px-[2.5rem]">
           <p className='pt-3'>Escribe tu texto:</p>
           <div className="py-2 ">
-            <input className={`select:border-pinky max-w-[100%] rounded-md border-[2px] pl-2 text-[3rem] focus:outline-none ${actualTheme.inputBorder} ${actualTheme.caret} ${actualTheme.inputTextColor} ${actualTheme.inputBgColor}`} type="text" value={`${inputText}` }/>
+            <input className={`select:border-pinky max-w-[100%] rounded-md border-[2px] pl-2 text-[3rem] focus:outline-none
+            ${actualTheme.inputBorder} ${actualTheme.caret} ${actualTheme.inputTextColor} ${actualTheme.inputBgColor}`}
+            type="text"
+            value={`${inputText}` }
+            onInput={handleInput}
+            />
             <div className="mt-4 block md:hidden">
               {textsPhases[`textPhaseMobile${actualPhase}`]}
               <div className={isWrongType ? 'animate-fade-in' : 'hidden animate-fade-out'}>¡Introduce la tecla correcta!</div>
