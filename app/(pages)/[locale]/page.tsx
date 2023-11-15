@@ -53,35 +53,48 @@ export  default function Index() {
   }, [isWrongType]);
 
   const handleInput = (event: any)=>{
-    if(actualPhase === 1 && acceptedValues.phase1.includes(event.key)){
-      setInputText(prevInput=>(prevInput + event.key));
+    let value = '';
+    if(event.target.value){
+      const totalInput = event.target.value;
+      const lastCharInput = totalInput[totalInput.length-1]
+      value = lastCharInput
+    }else{
+      value = event.key
+    }
+
+    if(actualPhase === 1 && acceptedValues.phase1.includes(value)){
+      setInputText(prevInput=>(prevInput + value));
       updatePhase()
+      console.log('it works')
       return
     }
    
-    if(actualPhase === 2 && acceptedValues.phase2.includes(event.key)){
-      setInputText(prevInput=>(prevInput + event.key));
+    if(actualPhase === 2 && acceptedValues.phase2.includes(value)){
+      setInputText(prevInput=>(prevInput + value));
       updatePhase()
       return
     }
 
-    if(actualPhase === 3 && event.key === event.key.toUpperCase() && acceptedValues.phase1.slice(0,10).includes(event.key.toLowerCase())){  
-      setInputText(prevInput=>(prevInput + event.key));
+    if(actualPhase === 3 && value === value.toUpperCase() && acceptedValues.phase1.slice(0,10).includes(value.toLowerCase())){  
+      setInputText(prevInput=>(prevInput + value));
       updatePhase()
       return
     }
 
-    if(actualPhase === 4 && event.key === event.key.toUpperCase() && acceptedValues.phase2.slice(0,10).includes(event.key.toLowerCase())){  
-      setInputText(prevInput=>(prevInput + event.key));
+    if(actualPhase === 4 && value === value.toUpperCase() && acceptedValues.phase2.slice(0,10).includes(value.toLowerCase())){  
+      setInputText(prevInput=>(prevInput + value));
       updatePhase()
       return
     }
-    if(actualPhase === 5 && event.key === event.key.toUpperCase() && acceptedValues.phase2.slice(10,acceptedValues.phase2.length-1).includes(event.key.toLowerCase())){  
-      setInputText(prevInput=>(prevInput + event.key));
+    if(actualPhase === 5 && value=== value.toUpperCase() && acceptedValues.phase2.slice(10,acceptedValues.phase2.length-1).includes(value.toLowerCase())){  
+      setInputText(prevInput=>(prevInput + value));
       updatePhase()
       return
     }
-    setIsWrongType(true)
+    if(!event.target.value){
+      setIsWrongType(true)
+    }
+
   }
 
   const handleKeyDown = (event: any) => {
