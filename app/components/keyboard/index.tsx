@@ -2,6 +2,7 @@
 import { useGlobalContext } from "@/app/context/store";
 import Key from "./key";
 import themes from "@/app/constants/themes";
+import Image from "next/image";
 
 export default function KeyBoard({keysPressed,actualPhase, isWrongType}:any){
     const {theme} = useGlobalContext();
@@ -13,7 +14,7 @@ export default function KeyBoard({keysPressed,actualPhase, isWrongType}:any){
         if(keysPressed[key])
         return themes[theme!].keyPressed
     };
-    return(<div className={`flex flex-col p-2 ${isWrongType ? 'animate-wiggle' : ''}`}>
+    return(<div className={`flex flex-col ${isWrongType ? 'animate-wiggle' : ''}`}>
         <div className={`mt-1 grid aspect-[100/3] grid-cols-87 gap-1 [&>div]:border-2 ${themes[theme!].borderKey}`}>
         <Key size={9}  isKeyPressed={isKeyPressed('Escape')} isPhaseActive={isPhaseActive(0)} />
         <Key size={6}  isKeyPressed={isKeyPressed('F1')} isPhaseActive={isPhaseActive(0)} />
@@ -87,7 +88,9 @@ export default function KeyBoard({keysPressed,actualPhase, isWrongType}:any){
         <Key size={9}  isKeyPressed={isKeyPressed('Enter')} isPhaseActive={isPhaseActive(0)}  ><sup></sup></Key>
         </div>
         <div className={`mt-1 grid aspect-[100/5] grid-cols-87 gap-1 [&>div]:border-2 ${themes[theme!].borderKey}`}>
-        <Key size={9}  isKeyPressed={isKeyPressed('ShiftLeft')} isPhaseActive={isPhaseActive(3) || isPhaseActive(4) || isPhaseActive(5)} ><sup></sup></Key>
+        <Key size={9}  isKeyPressed={isKeyPressed('ShiftLeft')} isPhaseActive={isPhaseActive(3) || isPhaseActive(4) || isPhaseActive(5)} ><sup>
+        <Image className={`${themes[theme!].shiftKey}`} src="./icons/shift-key.svg" width="10" height="10" alt='download icon'/>
+        </sup></Key>
         <Key size={6}  isKeyPressed={isKeyPressed('IntBackslash')} isPhaseActive={isPhaseActive(0)} ><sup></sup></Key>
         <Key size={6}  isKeyPressed={isKeyPressed('KeyZ')} isPhaseActive={isPhaseActive(2) || isPhaseActive(5)} >
         <sup>Z</sup>

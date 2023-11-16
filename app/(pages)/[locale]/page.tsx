@@ -18,7 +18,7 @@ export  default function Index() {
   const [keysPressed, setKeysPressed] = useState({});
   const [actualPhase, setActualPhase] = useState(1);
   const [isWrongType, setIsWrongType] = useState(false);
-  const [glyphSize, setGlyphSize] = useState(250);
+  const [glyphSize, setGlyphSize] = useState(270);
 
   const handleGlyphSize = (event: any) => {
     const newGlyphSize = parseInt(event.target.value, 10);
@@ -91,9 +91,10 @@ export  default function Index() {
       updatePhase()
       return
     }
-    if(!event.target.value){
+    if(value !== 'backspace'){
       setIsWrongType(true)
     }
+      
 
   }
 
@@ -156,11 +157,11 @@ export  default function Index() {
       <div className="col-span-21 hidden md:col-span-3 md:block">
         <SideBar/>
       </div>
-      <div className="col-span-21 grid grid-cols-24 md:col-span-21">
-        <div className="col-span-24 min-h-[6rem] md:col-span-16 md:px-[2.5rem]">
+      <div className="col-span-21 grid grid-cols-24  md:col-span-21">
+        <div className="col-span-24 min-h-[6rem] md:px-[2.5rem]">
           <p className='pt-3'>Escribe tu texto:</p>
           <div className="py-2 ">
-            <input className={`select:border-pinky max-w-[100%] rounded-md border-[2px] pl-2 text-[3rem] focus:outline-none
+            <input className={`select:border-pinky max-w-[100%] rounded-md border-[2px] pl-2 text-[54px] focus:outline-none
             ${actualTheme.inputBorder} ${actualTheme.caret} ${actualTheme.inputTextColor} ${actualTheme.inputBgColor}`}
             type="text"
             value={`${inputText}` }
@@ -173,15 +174,7 @@ export  default function Index() {
           </div>
         </div>
 
-        <div className="col-span-24 py-3  md:col-span-8">
-          <main>
-            <div  onClick={()=>setIsWrongType(true)} className="flex gap-2 md:items-center">
-             Descargar <Link href="#"> <Image src="./icons/download-icon.svg" width="14" height="14" alt='download icon'/></Link>
-            </div>
-          </main>
-        </div>
-
-        <div className="col-span-24 mt-[42px] min-h-[18rem] px-0 md:col-span-16 md:px-[2.5rem]">
+        <div className="col-span-24  mt-[54px] min-h-[18rem] px-0 md:col-span-18 md:px-[2.5rem]">
         <div className='flex items-center gap-2'>
           <span>Ajustes:</span>
           <input  type="range"
@@ -196,16 +189,22 @@ export  default function Index() {
         />
           <Image alt="change_theme" src={'/icons/contrast-icon.svg'} className={actualTheme.glyphFilter} width={16} height={16} onClick={toggleTheme} />
         </div>
-        <div className={` max-w-[100%] break-all text-center font-happy md:text-left`} style={{fontSize: glyphSize}}>
+        <div className={` mt-[54px] max-w-[100%] break-all text-center font-happy md:text-left`} style={{fontSize: glyphSize}}>
           {inputText}
           </div>
         </div>
-        <div className="col-span-24 hidden md:col-span-8 md:block">
-          <main>
+
+        <div className="col-span-24 mt-[54px]  hidden md:col-span-6 md:block">
+        <main>
+            <div  onClick={()=>setIsWrongType(true)} className="flex gap-2 md:items-center">
+             Descargar <Link href="#"> <Image className={`${themes[theme!].glyphFilter}`} src="./icons/download-icon.svg" width="14" height="14" alt='download icon'/></Link>
+            </div>
+          </main>
+          <main className="mt-[56px]">
             <div>
               <div>Gramática</div>
               <div className="mt-[42px]"><KeyBoard keysPressed={keysPressed} actualPhase={actualPhase} isWrongType={isWrongType}/></div>
-              <div className="p-4">
+              <div className="py-4">
                 {textsPhases[`textPhase${actualPhase}`]}
                 <div className={isWrongType ? 'animate-fade-in' : 'hidden animate-fade-out'}>¡Introduce la tecla correcta!</div>
               </div>

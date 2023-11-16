@@ -9,13 +9,14 @@ const themes: any = {
         inputBgColor: 'bg-white',
         caret: 'caret-pinky ',
         bgCheckboxColor: 'bg-pinky',
-        highlightedKey: '!border-pinky !bg-pink-300',
+        highlightedKey: '!bg-pink-100 !text-pinky-300',
         borderKey: '[&>div]:border-pink-300 [&>div]:text-white',
-        keyPressed: '!border-orange-900 !bg-orange-300',
-        glyphExpositor: 'border-pinky hover:bg-pinky hover:text-white',
+        keyPressed: '!border-pinky !bg-pinky-300 !text-pinky',
+        glyphExpositor: 'border-pinky hover:bg-pinky hover:text-white ',
         glyphFilter: 'pink-filter',
         rangeStyle: 'bg-black accent-pinky',
-        hamburguerStyle: 'bg-pinky'
+        hamburguerStyle: 'bg-pinky',
+        shiftKey: 'white-filter'
     },
     dark:{
         textColor: 'text-white',
@@ -27,13 +28,14 @@ const themes: any = {
         inputBgColor: 'bg-black',
         caret: 'caret-white',
         bgCheckboxColor: 'bg-white',
-        highlightedKey: '!border-white bg-pink-800 [&>div]:text-white',
+        highlightedKey: '!border-white bg-pinky-100 [&>div]:text-pinky-300',
         borderKey: '[&>div]:border-white [&>div]:text-black',
-        keyPressed: '!border-orange-900 !bg-orange-300 [&>div]:text-white',
+        keyPressed: '!border-pinky !bg-pinky [&>div]:text-white',
         glyphExpositor: 'border-white hover:bg-white hover:text-pinky',
         glyphFilter: 'white-filter',
         rangeStyle: 'bg-white accent-pinky',
-        hamburguerStyle: 'bg-white'
+        hamburguerStyle: 'bg-white',
+        shiftKey: 'white-filter'
     },
 }
 

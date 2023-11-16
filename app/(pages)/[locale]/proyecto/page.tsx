@@ -7,6 +7,7 @@ import cuadratin from '@/app/animations/cuadratin.json'
 import teclado from '@/app/animations/teclado.json'
 import ligaduras1 from '@/app/animations/ligaduras01.json'
 import ligaduras2 from '@/app/animations/ligaduras02.json'
+import kerning from '@/app/animations/kerning.json'
 import { motion } from "framer-motion"
 
 export default function Proyecto() {
@@ -25,12 +26,13 @@ export default function Proyecto() {
           <SideBar />
         </div>
         {/* COl 2 */}
+
         <div className="col-span-24 grid grid-cols-24 md:col-span-21">
           
-          <div className="col-span-24 grid min-h-[6rem] grid-cols-24 md:col-span-16">
+          <div className="col-span-24 grid min-h-[6rem] grid-cols-24 md:col-span-18">
             {/* COLuMN * TITLE */}
             <div className="col-span-24 grid grid-cols-24">
-              <div className="col-span-24 md:col-span-6  ">
+              <div className="col-span-24 pl-[0] md:col-span-6  md:pl-[12px]">
                 Metatipografía
               </div>
               <div className="col-span-24 md:col-span-16 ">
@@ -40,16 +42,16 @@ export default function Proyecto() {
              {/* COLuMN * TITLE  END*/}
              {/* COLuMN * TITLE */}
             <div className="col-span-24 mt-2 grid grid-cols-24">
-              <div className="col-span-24 md:col-span-6">
+              <div className="col-span-24 pl-[0] md:col-span-6">
                 Glifos
               </div>
               <div className="col-span-24  md:col-span-16 ">
-              <div className="flex flex-col gap-4 md:flex-row">
+              <div className="flex flex-col gap-[32px] md:flex-row">
                 <div className="flex-col md:w-[45%]">
                   <div className=" flex aspect-square ">
                     <LetterExpositor type={0} facePart={'eyeRight'} values={['1','2','3','4','5','6','7','8','9','0','q','w','e','r','t','y']}/>
                   </div>
-                  <div className=" mt-2 flex aspect-[4/1]">
+                  <div className=" mt-[32px] flex aspect-[4/1]">
                     <LetterExpositor type={0} facePart={'eyeRight'} values={['u','i','o','']}/>
                   </div>
                   <div className="mt-2">Ojo Der.</div>
@@ -59,7 +61,7 @@ export default function Proyecto() {
                   <div className=" flex aspect-square ">
                     <LetterExpositor type={1} facePart={'eyeLeft'} values={['a','s','d','f','g','h','j','k','l','ñ','z','x','c','v','b','n']}/>
                   </div>
-                  <div className=" mt-2 flex aspect-[4/1]">
+                  <div className=" mt-[32px] flex aspect-[4/1]">
                     <LetterExpositor type={1} facePart={'eyeLeft'} values={['m']}/>
                   </div>
                   <div className="mt-2">Ojo Izq.</div>
@@ -88,8 +90,8 @@ export default function Proyecto() {
 
               <div className="mt-4 flex flex-col gap-4 md:flex-row">
                 <div className="flex-col md:w-[45%]">
-                  <div className=" flex aspect-[4/3] ">
-                    <LetterExpositor type={1} facePart={'face'} values={['Z','X','C','V','B','N','M']}/>
+                  <div className=" flex aspect-[4/2] ">
+                    <LetterExpositor  facePart={'face'} values={['Z','X','C','V','B','N','M']}/>
                   </div>
                   <div className="mt-2">Cara</div>
                 </div>  
@@ -102,7 +104,7 @@ export default function Proyecto() {
              {/* COLuMN * TITLE  END*/}
              {/* COLuMN * TITLE */}
             <div className="col-span-24 mt-4 grid grid-cols-24">
-              <div className="col-span-24 md:col-span-6 ">
+              <div className="col-span-24 pl-[0] md:col-span-6 ">
                 Proyecto
               </div>
               <div className="col-span-24 md:col-span-16">
@@ -113,11 +115,19 @@ export default function Proyecto() {
 
              {/* COLuMN * TITLE */}
             <div className="col-span-24 mt-4 grid grid-cols-24">
-              <div className="col-span-24 md:col-span-6 ">
-                Cuadratin
+              <div className="col-span-24 pl-[0] md:col-span-6 ">
+                Cuadratín
               </div>
               <div className="col-span-24 md:col-span-16">
                 <p>Todos los cajetines de los diferentes glifos tienen las mismas dimensiones, 1.000 x 1.000px. Al tener la misma superficie nos permite aplicar un <i>kerning</i> negativo del -100% a los diferentes grupos permitiendo la superposición de las diferentes partes del cuerpo. </p>
+                <div className="flex items-center justify-center py-8">
+                  <Lottie
+                    loop
+                    animationData={kerning}
+                    play
+                    className="w-[100%] "
+                  />
+                </div>
                 <p>Una vez establecidas las dimensiones del cuadratín mediante un esquema se define la posición que ocupará los elementos principales de tu tipografía, en este caso se dividió el cajetín en cinco partes: ojo derecho, ojo izquierdo, nariz, boca y forma de la cara. Dentro de cada grupo las piezas solo pueden ocupar el área que se había asignado de forma que al aplicar el kerning negativo se superpongan correctamente y permita la combinación con los diferentes caracteres.</p>
                 <div className="flex items-center justify-center py-8">
                   <Lottie
@@ -130,7 +140,7 @@ export default function Proyecto() {
               </div>
             </div>
             <div className="col-span-24 mt-4 grid grid-cols-24">
-              <div className="col-span-24 md:col-span-6 ">
+              <div className="col-span-24 pl-[0] md:col-span-6 ">
                 Disposición del teclado
               </div>
               <div className="col-span-24  md:col-span-16">
@@ -171,7 +181,7 @@ export default function Proyecto() {
             </div>
           </div>
          
-          <div className="col-span-24 md:col-span-8">
+          <div className="col-span-24 md:col-span-6">
             <main>
             <div className="flex flex-col gap-1">
                 <h4> Licencia</h4>
@@ -184,11 +194,11 @@ export default function Proyecto() {
               </div>
               <br/>
               <div className="mt-4 flex flex-col gap-1">
-                <h4> Diseñadora: </h4>
+                <h4> Directora de Arte: </h4>
                 <p className="italic">Cristina Hernando</p>
               </div>
               <div className="mt-4 flex flex-col gap-1">
-                <h4> Desarrollador Web: </h4>
+                <h4>Website by: </h4>
                 <p className="italic">Onar Berrade</p>
               </div>
             </main>

@@ -10,7 +10,7 @@ const config: Config = {
   theme: {
     extend:{
       colors:{
-        pinky: {DEFAULT: '#F05768', 300:'#FBCDD2'}
+        pinky: {DEFAULT: '#F05768',100: '#FEEFF0', 300:'#FBCDD2'}
       },
       fontFamily: {
         libre: ['var(--libre-caslon-text)','Libre Caslon Text','serif'],
