@@ -58,14 +58,25 @@ export  default function Index() {
       const totalInput = event.target.value;
       const lastCharInput = totalInput[totalInput.length-1]
       value = lastCharInput
+      if(value === inputText[inputText.length-1] || totalInput.length < inputText.length){
+        return
+      }
     }else{
+      
       value = event.key
+      
+      if(value === inputText[inputText.length-1]){
+        return
+      }
     }
-
+    
+    if(value === undefined){
+      return
+    }
     if(actualPhase === 1 && acceptedValues.phase1.includes(value)){
       setInputText(prevInput=>(prevInput + value));
       updatePhase()
-      console.log('it works')
+      
       return
     }
    
@@ -91,18 +102,16 @@ export  default function Index() {
       updatePhase()
       return
     }
-    if(value !== 'backspace'){
+    
       setIsWrongType(true)
-    }
-      
-
+    
   }
 
   const handleKeyDown = (event: any) => {
     if(event.key.length === 1){
       handleInput(event)
     }
-    if( event.keyCode=== 8){
+    if( event.key === 'Backspace'){
       setInputText(prevInput=>{
         return prevInput.slice(0,-1)});
       backPhase();
