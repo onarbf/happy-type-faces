@@ -111,7 +111,7 @@ export  default function Index() {
   }
 
   const handleKeyDown = (event: any) => {
-    alert('event.key ' + event.key)
+    alert('event.key ' + JSON.stringify(event.keyCode))
     if(event.key.length === 1){
       handleInput(event)
     }
