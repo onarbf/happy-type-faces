@@ -56,6 +56,7 @@ export  default function Index() {
     let value = '';
     console.log('working')
     if(event.target.value){
+
       console.log('event.target.value',event.target.value)
       const totalInput = event.target.value;
       const lastCharInput = totalInput[totalInput.length-1]
@@ -112,7 +113,8 @@ export  default function Index() {
   }
 
   const handleKeyDown = (event: any) => {
-    if( event.key === 229){
+    alert(event.keyCode)
+    if( event.keyCode === 229){
       return
     }
     if(event.key.length === 1){
@@ -126,6 +128,7 @@ export  default function Index() {
     }
     setKeysPressed(prevKeys => ({ ...prevKeys, [event.code]: true })); 
   };
+
   const handleKeyUp = (event: any) => {
     setKeysPressed(prevKeys => ({ ...prevKeys, [event.code]: false }));
   };
