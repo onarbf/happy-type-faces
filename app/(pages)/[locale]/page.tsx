@@ -111,10 +111,11 @@ export  default function Index() {
   }
 
   const handleKeyDown = (event: any) => {
+    alert('event.key ' + event.key)
     if(event.key.length === 1){
       handleInput(event)
     }
-    if( event.key === 'Backspace' || event.key === 'Unidentified'){
+    if( event.key === 'Backspace'){
       
       setInputText(prevInput=>{
         return prevInput.slice(0,-1)});
