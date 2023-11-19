@@ -61,6 +61,10 @@ export  default function Index() {
       if(value === inputText[inputText.length-1] || totalInput.length < inputText.length){
         return
       }
+
+      if(value=== undefined){
+        setInputText('');
+      }
     }else{
       
       value = event.key
