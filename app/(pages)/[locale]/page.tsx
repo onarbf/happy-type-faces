@@ -56,6 +56,7 @@ export  default function Index() {
     let value = '';
     console.log('working')
     if(event.target.value){
+      console.log('event.target.value',event.target.value)
       const totalInput = event.target.value;
       const lastCharInput = totalInput[totalInput.length-1]
       value = lastCharInput
@@ -111,7 +112,9 @@ export  default function Index() {
   }
 
   const handleKeyDown = (event: any) => {
-    alert('event.key ' + JSON.stringify(event.keyCode))
+    if( event.key === 229){
+      return
+    }
     if(event.key.length === 1){
       handleInput(event)
     }
