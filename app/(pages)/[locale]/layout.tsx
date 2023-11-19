@@ -41,7 +41,6 @@ export default async function Layout({children, params: {locale}}: Layout) {
             {children}
             <div className="h-[10vh] w-[100%]  grow"><Footer/></div>
           </ThemeProvider>
-
         </GlobalContextProvider>
       </body>
       

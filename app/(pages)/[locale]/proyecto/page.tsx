@@ -47,7 +47,7 @@ export default function Proyecto() {
               </div>
               <div className="col-span-24  md:col-span-16 ">
               <div className="flex flex-col gap-[32px] md:flex-row">
-                <div className="flex-col md:w-[45%]">
+                <div className="w-[90%] flex-col md:w-[45%]">
                   <div className=" flex aspect-square ">
                     <LetterExpositor type={0} facePart={'eyeRight'} values={['1','2','3','4','5','6','7','8','9','0','q','w','e','r','t','y']}/>
                   </div>
@@ -57,7 +57,7 @@ export default function Proyecto() {
                   <div className="mt-2">Ojo Der.</div>
                 </div> 
 
-                <div className="flex-col md:w-[45%]">
+                <div className="w-[90%] flex-col md:w-[45%]">
                   <div className=" flex aspect-square ">
                     <LetterExpositor type={1} facePart={'eyeLeft'} values={['a','s','d','f','g','h','j','k','l','ñ','z','x','c','v','b','n']}/>
                   </div>
@@ -70,7 +70,7 @@ export default function Proyecto() {
               </div>
 
               <div className="mt-4 flex flex-col gap-4 md:flex-row">
-                <div className="flex-col md:w-[45%]">
+                <div className="w-[90%] flex-col md:w-[45%]">
                   <div className=" flex aspect-[4/3] ">
                     <LetterExpositor type={0} facePart={'nose'} values={['Q','W','E','R','T','Y','U','I','O']}/>
                   </div>
@@ -80,7 +80,7 @@ export default function Proyecto() {
               </div>
 
               <div className="mt-4 flex flex-col gap-4 md:flex-row">
-                <div className="flex-col md:w-[45%]">
+                <div className="w-[90%] flex-col md:w-[45%]">
                   <div className=" flex aspect-[4/3] ">
                     <LetterExpositor type={1} facePart={'mouth'} values={['A','S','D','F','G','H','J','K','L','Ñ']}/>
                   </div>
@@ -89,7 +89,7 @@ export default function Proyecto() {
               </div>
 
               <div className="mt-4 flex flex-col gap-4 md:flex-row">
-                <div className="flex-col md:w-[45%]">
+                <div className="w-[90%] flex-col md:w-[45%]">
                   <div className=" flex aspect-[4/2] ">
                     <LetterExpositor  facePart={'face'} values={['Z','X','C','V','B','N','M']}/>
                   </div>
@@ -198,7 +198,7 @@ export default function Proyecto() {
                 <p className="italic">Cristina Hernando</p>
               </div>
               <div className="mt-4 flex flex-col gap-1">
-                <h4>Website by: </h4>
+                <h4>Desarrollador web: </h4>
                 <p className="italic">Onar Berrade</p>
               </div>
             </main>
