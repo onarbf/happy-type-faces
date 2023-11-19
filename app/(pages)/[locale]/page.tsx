@@ -54,6 +54,7 @@ export  default function Index() {
 
   const handleInput = (event: any)=>{
     let value = '';
+    console.log('working')
     if(event.target.value){
       const totalInput = event.target.value;
       const lastCharInput = totalInput[totalInput.length-1]
@@ -113,13 +114,9 @@ export  default function Index() {
     if(event.key.length === 1){
       handleInput(event)
     }
-    if(event.key === undefined){
-      alert('hi!')
-      setInputText('');
-      backPhase();
-      return
-    }
     if( event.key === 'Backspace'){
+      
+      alert(event.key )
       setInputText(prevInput=>{
         return prevInput.slice(0,-1)});
       backPhase();
