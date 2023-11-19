@@ -111,12 +111,12 @@ export  default function Index() {
   }
 
   const handleKeyDown = (event: any) => {
+    alert(event.key )
     if(event.key.length === 1){
       handleInput(event)
     }
     if( event.key === 'Backspace'){
       
-      alert(event.key )
       setInputText(prevInput=>{
         return prevInput.slice(0,-1)});
       backPhase();
