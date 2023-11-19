@@ -113,10 +113,6 @@ export  default function Index() {
   }
 
   const handleKeyDown = (event: any) => {
-    alert(event.keyCode)
-    if( event.keyCode === 229){
-      return
-    }
     if(event.key.length === 1){
       handleInput(event)
     }
