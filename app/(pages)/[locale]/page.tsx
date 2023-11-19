@@ -58,12 +58,10 @@ export  default function Index() {
       const totalInput = event.target.value;
       const lastCharInput = totalInput[totalInput.length-1]
       value = lastCharInput
+      
+      console.log('value',value)
       if(value === inputText[inputText.length-1] || totalInput.length < inputText.length){
         return
-      }
-
-      if(value=== undefined){
-        setInputText('');
       }
     }else{
       
@@ -114,6 +112,12 @@ export  default function Index() {
   const handleKeyDown = (event: any) => {
     if(event.key.length === 1){
       handleInput(event)
+    }
+    if(event.key === undefined){
+      alert('hi!')
+      setInputText('');
+      backPhase();
+      return
     }
     if( event.key === 'Backspace'){
       setInputText(prevInput=>{
