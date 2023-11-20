@@ -92,12 +92,15 @@ export  default function Index() {
 
   const handleKeyDown = (event: any) => {
     event.preventDefault();
-    alert(event.key)
-    if(event.key.length === 1){
-      handleInput(event.key)
+    console.log(event.nativeEvent.inputType )
+    if(event.nativeEvent.inputType === 'insertText'){
+      if(event.nativeEvent.data.length === 1){
+        handleInput(event.nativeEvent.data)
+      }
     }
-    if( event.key === 'Backspace'){
-      
+    
+    if(event.nativeEvent.inputType === 'deleteContentBackward'){
+        console.log('ttriggered')
       setInputText(prevInput=>{
         return prevInput.slice(0,-1)});
       backPhase();
