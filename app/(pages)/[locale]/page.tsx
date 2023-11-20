@@ -54,7 +54,7 @@ export  default function Index() {
 
   const handleInput = (event: any)=>{
     let value = '';
-    console.log('working')
+    console.log('workin')
     if(event.target.value){
 
       console.log('event.target.value',event.target.value)
@@ -113,6 +113,7 @@ export  default function Index() {
   }
 
   const handleKeyDown = (event: any) => {
+    alert(event.key)
     if(event.key.length === 1){
       handleInput(event)
     }
@@ -181,7 +182,9 @@ export  default function Index() {
             ${actualTheme.inputBorder} ${actualTheme.caret} ${actualTheme.inputTextColor} ${actualTheme.inputBgColor}`}
             type="text"
             value={`${inputText}` }
-            onInput={handleInput}
+/*             onInput={handleInput} */
+            onKeyDown={handleKeyDown}
+            onKeyUp={handleKeyUp}
             />
             <div className="mt-4 block md:hidden">
               {textsPhases[`textPhaseMobile${actualPhase}`]}
