@@ -92,7 +92,7 @@ export  default function Index() {
 
   const handleKeyDown = (event: any) => {
     event.preventDefault();
-    console.log(event.nativeEvent.inputType )
+    console.log(event)
     if(event.nativeEvent.inputType === 'insertText'){
       if(event.nativeEvent.data.length === 1){
         handleInput(event.nativeEvent.data)
@@ -100,16 +100,10 @@ export  default function Index() {
     }
     
     if(event.nativeEvent.inputType === 'deleteContentBackward'){
-        console.log('ttriggered')
       setInputText(prevInput=>{
         return prevInput.slice(0,-1)});
       backPhase();
-    }
-    setKeysPressed(prevKeys => ({ ...prevKeys, [event.code]: true })); 
-  };
-
-  const handleKeyUp = (event: any) => {
-    setKeysPressed(prevKeys => ({ ...prevKeys, [event.code]: false }));
+    } 
   };
 
   const updatePhase = ()=>{
@@ -132,19 +126,27 @@ export  default function Index() {
       setActualPhase(actualPhase-1);  
   }
 
+  const handleVirtualKeyDown = (event:any)=>{
+    setKeysPressed(prevKeys => ({ ...prevKeys, [event.code]: true })); 
+  }
 
-/*   useEffect(() => {
+  const handleVirtualKeyUp = (event:any)=>{
+    setKeysPressed(prevKeys => ({ ...prevKeys, [event.code]: false }));
+  }
+
+
+  useEffect(() => {
  
     // Add event listener
-    window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('keyup', handleKeyUp);
+    window.addEventListener('keydown', handleVirtualKeyDown);
+    window.addEventListener('keyup',  handleVirtualKeyUp);
 
     // Remove event listener on cleanup
     return () =>{ 
-      window.removeEventListener('keydown', handleKeyDown);
-      window.addEventListener('keyup', handleKeyUp);
+      window.removeEventListener('keydown', handleVirtualKeyDown);
+      window.addEventListener('keyup',  handleVirtualKeyUp);
     }
-  },[actualPhase]) */
+  },[actualPhase])
 
 
   return (
@@ -166,8 +168,6 @@ export  default function Index() {
             type="text"
             value={`${inputText}` }
             onInput={handleKeyDown}
-
-            onKeyUp={handleKeyUp}
             />
             <div className="mt-4 block md:hidden">
               {textsPhases[`textPhaseMobile${actualPhase}`]}
