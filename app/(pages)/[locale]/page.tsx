@@ -91,7 +91,7 @@ export  default function Index() {
   }
 
   const handleKeyDown = (event: any) => {
-
+    alert(event.key)
     if(event.key.length === 1){
       handleInput(event.key)
     }
@@ -161,8 +161,8 @@ export  default function Index() {
             ${actualTheme.inputBorder} ${actualTheme.caret} ${actualTheme.inputTextColor} ${actualTheme.inputBgColor}`}
             type="text"
             value={`${inputText}` }
-/*             onInput={handleInput} */
-            onKeyDown={handleKeyDown}
+/*          onInput={handleInput} */
+            onKeyPress={handleKeyDown}
             onKeyUp={handleKeyUp}
             />
             <div className="mt-4 block md:hidden">
