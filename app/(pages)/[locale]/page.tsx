@@ -52,29 +52,7 @@ export  default function Index() {
     return () => clearTimeout(timer); // Limpiar el timer
   }, [isWrongType]);
 
-  const handleInput = (event: any)=>{
-    let value = '';
-    console.log('workin')
-    if(event.target.value){
-
-      console.log('event.target.value',event.target.value)
-      const totalInput = event.target.value;
-      const lastCharInput = totalInput[totalInput.length-1]
-      value = lastCharInput
-      
-      console.log('value',value)
-      if(value === inputText[inputText.length-1] || totalInput.length < inputText.length){
-        return
-      }
-    }else{
-      
-      value = event.key
-      
-      if(value === inputText[inputText.length-1]){
-        return
-      }
-    }
-    
+  const handleInput = (value: any)=>{
     if(value === undefined){
       return
     }
@@ -108,14 +86,14 @@ export  default function Index() {
       return
     }
     
-      setIsWrongType(true)
+    setIsWrongType(true)
     
   }
 
   const handleKeyDown = (event: any) => {
-    alert(event.key)
+
     if(event.key.length === 1){
-      handleInput(event)
+      handleInput(event.key)
     }
     if( event.key === 'Backspace'){
       
@@ -129,6 +107,7 @@ export  default function Index() {
   const handleKeyUp = (event: any) => {
     setKeysPressed(prevKeys => ({ ...prevKeys, [event.code]: false }));
   };
+
   const updatePhase = ()=>{
     if(actualPhase === 5){
       
@@ -150,7 +129,7 @@ export  default function Index() {
   }
 
 
-  useEffect(() => {
+/*   useEffect(() => {
  
     // Add event listener
     window.addEventListener('keydown', handleKeyDown);
@@ -161,7 +140,7 @@ export  default function Index() {
       window.removeEventListener('keydown', handleKeyDown);
       window.addEventListener('keyup', handleKeyUp);
     }
-  },[actualPhase])
+  },[actualPhase]) */
 
 
   return (
