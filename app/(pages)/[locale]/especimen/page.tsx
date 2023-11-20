@@ -36,7 +36,7 @@ export default function Especimen() {
                 </div>
                 <div className="col-span-24 mt-8">
                     {/* <Image src="./media/especimen_catalogo.svg" height={300} width={300} className="h-[100%] w-[100%]" alt="especimen-catalogo"/> */}
-                    <p className="text-center font-happy text-[54px] md:text-[270px]">
+                    <p className="max-w-[90%] text-center font-happy text-[200px] md:max-w-[100%] md:text-[270px]">
                     8kIÑMynnYJJZogRHM
 6hWFFZ4fEDDVtgIGX
 7jEHM2dQLC2zYDDV

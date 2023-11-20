@@ -10,12 +10,12 @@ export default function Footer(){
         <div className="col-span-24 md:col-span-6">
             <ul className=" flex gap-2">
                 <li>
-                    <Link href="#">
+                    <Link href="https://instagram.com/tina.hernando?igshid=MTk0NTkyODZkYg==">
                         01. Instagram
                     </Link>
                 </li>
                 <li>
-                    <Link href="#">
+                    <Link href="mailto:&#104;&#100;&#111;&#099;&#114;&#105;&#115;&#116;&#105;&#110;&#097;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">
                         02. Contacto
                     </Link>
                 </li>

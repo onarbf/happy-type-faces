@@ -16,13 +16,13 @@ export default function Header(){
                         className={`hamburger ${isOpen ? 'open' : ''}`}
                         onClick={() => setIsOpen(!isOpen)}
                     >
-                        <span className={`hamburger-line origin-top-left ${themes[theme!].hamburguerStyle}`}></span>
+                        <span  className={`hamburger-line origin-top-left ${themes[theme!].hamburguerStyle}`}></span>
                         <span className={`hamburger-line ${themes[theme!].hamburguerStyle}`}></span>
                         <span className={`hamburger-line origin-bottom-left ${themes[theme!].hamburguerStyle}`}></span>
                     </button>
                 </div>
                 </div>
-                <div className={`relative z-10 ${themes[theme!].bgColor}`}>
+                <div onClick={() => setIsOpen(false)}  className={`relative z-10 ${themes[theme!].bgColor}`}>
                 {isOpen && (<SideBar/>)}
             </div>
         </header>)

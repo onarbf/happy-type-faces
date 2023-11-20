@@ -163,7 +163,7 @@ export  default function Index() {
         <div className="col-span-24 min-h-[6rem] md:px-[2.5rem]">
           <p className='pt-3'>Escribe tu texto:</p>
           <div className="py-2 ">
-            <input className={`select:border-pinky max-w-[100%] rounded-md border-[2px] pl-2 text-[54px] focus:outline-none
+            <input className={`select:border-pinky max-w-[90%] rounded-md border-[2px] pl-2 text-[54px] focus:outline-none
             ${actualTheme.inputBorder} ${actualTheme.caret} ${actualTheme.inputTextColor} ${actualTheme.inputBgColor}`}
             type="text"
             value={`${inputText}` }
@@ -198,9 +198,13 @@ export  default function Index() {
 
         <div className="col-span-24 mt-[54px]  hidden md:col-span-6 md:block">
         <main>
-            <div  onClick={()=>setIsWrongType(true)} className="flex gap-2 md:items-center">
-             Descargar <Link href="#"> <Image className={`${themes[theme!].glyphFilter}`} src="./icons/download-icon.svg" width="14" height="14" alt='download icon'/></Link>
-            </div>
+            
+            <Link href="./happy-font-face.ttf" download>
+              <div className="flex gap-2 md:items-center">
+                Descargar <Image className={`${themes[theme!].glyphFilter}`} src="./icons/download-icon.svg" width="14" height="14" alt='download icon'/>
+               </div>
+            </Link>
+            
           </main>
           <main className="mt-[56px]">
             <div>
