@@ -150,7 +150,7 @@ export  default function Index() {
 
 
   return (
-  <motion.section className={`mx-[2.5vw] min-h-[80vh]`}
+  <motion.section className={`mx-[2.5vw] grow`}
   initial="hidden"
   animate="visible"
   variants={variants}

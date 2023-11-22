@@ -53,8 +53,8 @@ ttbbOHHXi,WÑVo.EL;
 
 
 
-            <div className="col-span-24 md:col-span-6">
-            <main>
+            <div className="sticky top-0 col-span-24 mt-[-20px]  max-h-[90vh] scroll-mt-0  md:col-span-6 ">
+            <main className="mt-[20px]">
             <div className="flex flex-col gap-1">
                 <h4> Licencia</h4>
                 <p><u>Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</u></p>

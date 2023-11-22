@@ -181,9 +181,9 @@ export default function Proyecto() {
             </div>
           </div>
          
-          <div className="col-span-24 md:col-span-6">
+          <div className="sticky top-0 col-span-24 mt-[-20px] max-h-[100vh] md:col-span-6">
             <main>
-            <div className="flex flex-col gap-1">
+            <div className="sticky mt-[20px] flex flex-col gap-1">
                 <h4> Licencia</h4>
                 <p><u>Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</u></p>
               </div>
