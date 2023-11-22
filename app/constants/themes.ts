@@ -17,7 +17,7 @@ const themes: any = {
         rangeStyle: 'bg-black accent-pinky',
         hamburguerStyle: 'bg-pinky',
         shiftKey: 'white-filter',
-        placeHolderColor: 'placeholder:text-pinky'
+        placeHolderColor: 'placeholder:text-pinky-300'
     },
     dark:{
         textColor: 'text-white',
@@ -29,7 +29,7 @@ const themes: any = {
         inputBgColor: 'bg-black',
         caret: 'caret-white',
         bgCheckboxColor: 'bg-white',
-        highlightedKey: '!border-white bg-pinky-100 [&>div]:text-pinky-300',
+        highlightedKey: '!border-white bg-pinky-100 [&>div]:text-pinky',
         borderKey: '[&>div]:border-white [&>div]:text-black',
         keyPressed: '!border-pinky !bg-pinky [&>div]:text-white',
         glyphExpositor: 'border-white hover:bg-white hover:text-pinky',
@@ -37,7 +37,7 @@ const themes: any = {
         rangeStyle: 'bg-white accent-pinky',
         hamburguerStyle: 'bg-white',
         shiftKey: 'white-filter',
-        placeHolderColor: 'placeholder:text-white'
+        placeHolderColor: ''
     },
 }
 
