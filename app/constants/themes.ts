@@ -9,14 +9,15 @@ const themes: any = {
         inputBgColor: 'bg-white',
         caret: 'caret-pinky ',
         bgCheckboxColor: 'bg-pinky',
-        highlightedKey: '!bg-pink-100 !text-pinky-300',
-        borderKey: '[&>div]:border-pink-300 [&>div]:text-white',
+        highlightedKey: '!bg-pink-100 !text-pinky',
+        borderKey: '[&>div]:border-pinky [&>div]:text-white',
         keyPressed: '!border-pinky !bg-pinky-300 !text-pinky',
         glyphExpositor: 'border-pinky hover:bg-pinky hover:text-white ',
         glyphFilter: 'pink-filter',
         rangeStyle: 'bg-black accent-pinky',
         hamburguerStyle: 'bg-pinky',
-        shiftKey: 'white-filter'
+        shiftKey: 'white-filter',
+        placeHolderColor: 'placeholder:text-pinky'
     },
     dark:{
         textColor: 'text-white',
@@ -35,7 +36,8 @@ const themes: any = {
         glyphFilter: 'white-filter',
         rangeStyle: 'bg-white accent-pinky',
         hamburguerStyle: 'bg-white',
-        shiftKey: 'white-filter'
+        shiftKey: 'white-filter',
+        placeHolderColor: 'placeholder:text-white'
     },
 }
 

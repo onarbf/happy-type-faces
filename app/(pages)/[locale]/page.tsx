@@ -163,10 +163,11 @@ export  default function Index() {
         <div className="col-span-24 min-h-[6rem] md:px-[2.5rem]">
           <p className='pt-3'>Escribe tu texto:</p>
           <div className="py-2 ">
-            <input className={`select:border-pinky max-w-[90%] rounded-md border-[2px] pl-2 text-[54px] focus:outline-none
-            ${actualTheme.inputBorder} ${actualTheme.caret} ${actualTheme.inputTextColor} ${actualTheme.inputBgColor}`}
+            <input className={`select:border-none max-w-[90%] rounded-md border-[2px] border-none pl-2 text-[54px] italic focus:outline-none
+             ${actualTheme.caret} ${actualTheme.placeHolderColor} ${actualTheme.inputTextColor} ${actualTheme.inputBgColor}`}
             type="text"
             value={`${inputText}` }
+            placeholder='Escribe tu texto'
             onInput={handleKeyDown}
             />
             <div className="mt-4 block md:hidden">
