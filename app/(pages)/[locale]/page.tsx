@@ -29,6 +29,11 @@ export  default function Index() {
     hidden: { opacity: 0, y:'20px' },
     visible: { opacity: 1, y:'0' },
   }
+  const textVariants = {
+    hidden: { opacity: 0, y:'0' },
+    visible: { opacity: 1, y:'0' },
+  }
+
   const actualTheme = themes[theme!]
   const toggleTheme = ()=>{
     if(theme === 'dark'){
@@ -161,13 +166,21 @@ export  default function Index() {
       </div>
       <div className="col-span-21 grid grid-cols-24  md:col-span-21">
         <div className="col-span-24 min-h-[6rem] md:px-[2.5rem]">
-          <p className='pt-3'>Escribe tu texto:</p>
+          <div className="min-h-[48px]">
+          {inputText.length > 0 && <motion.p className={`pt-3`}
+            initial="hidden"
+            animate="visible"
+            variants={textVariants}
+            transition={{ duration: 0.8 }}>
+            Escribe tu texto:
+            </motion.p>}
+          </div>
           <div className="py-2 ">
             <input className={`select:border-none max-w-[90%] rounded-md border-[2px] border-none pl-2 text-[54px] italic focus:outline-none
              ${actualTheme.caret} ${actualTheme.placeHolderColor} ${actualTheme.inputTextColor} ${actualTheme.inputBgColor}`}
             type="text"
             value={`${inputText}` }
-            placeholder='Escribe tu texto'
+            placeholder='Escribe aquí tu texto'
             onInput={handleKeyDown}
             />
             <div className="mt-4 block md:hidden">
