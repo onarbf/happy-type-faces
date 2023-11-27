@@ -4,13 +4,16 @@ import themes from "@/app/constants/themes";
 import { useGlobalContext } from "@/app/context/store";
 import { useState } from "react";
 import SideBar from "../sidebar";
+import Image from "next/image";
 
 export default function Header(){
     const [isOpen, setIsOpen] = useState(false);
     const {theme} = useGlobalContext();
     return(<header className={`h-[6vh] px-[2.5vw] pt-[2.5vh] text-[1.3rem] font-bold ${themes[theme!].textColor}`}>
-            <div className="flex justify-between ">
-                <div>Hapy <span className="font-normal italic">(Type)</span> Faces</div>
+            <div className="flex items-center justify-between">
+                <div className="">
+                <Image alt="change_theme" src={'/media/logo.svg'} className="h-auto w-[200px] md:w-[300px]"  width={300} height={300} />
+                </div>
                 <div className="block md:hidden">
                     <button
                         className={`hamburger ${isOpen ? 'open' : ''}`}

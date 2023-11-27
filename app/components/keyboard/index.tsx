@@ -14,8 +14,8 @@ export default function KeyBoard({keysPressed,actualPhase, isWrongType}:any){
         if(keysPressed[key])
         return themes[theme!].keyPressed
     };
-    return(<div className={`flex flex-col ${isWrongType ? 'animate-wiggle' : ''}`}>
-        <div className={`mt-1 grid aspect-[100/3] grid-cols-87 gap-1 [&>div]:border-2 ${themes[theme!].borderKey}`}>
+    return(<div className={`${isWrongType ? 'animate-wiggle' : ''}`}>
+        <div className={`mt-1 grid aspect-[100/3] grid-cols-87 `}>
         <Key size={9}  isKeyPressed={isKeyPressed('Escape')} isPhaseActive={isPhaseActive(0)} />
         <Key size={6}  isKeyPressed={isKeyPressed('F1')} isPhaseActive={isPhaseActive(0)} />
         <Key size={6}  isKeyPressed={isKeyPressed('F2')} isPhaseActive={isPhaseActive(0)} />
@@ -31,8 +31,8 @@ export default function KeyBoard({keysPressed,actualPhase, isWrongType}:any){
         <Key size={6}  isKeyPressed={isKeyPressed('F12')} isPhaseActive={isPhaseActive(0)} />
         <Key size={6}  isKeyPressed={isKeyPressed('')} isPhaseActive={isPhaseActive(0)} />
         </div>
-        <div className={`mt-1 grid aspect-[100/5] grid-cols-87 gap-1 [&>div]:border-2 ${themes[theme!].borderKey}`}>
-            <Key size={9}  isKeyPressed={isKeyPressed('Backquote')} isPhaseActive={isPhaseActive(0)} />
+        <div className={`mt-1 grid  grid-cols-87`}>
+            <Key size={6}  isKeyPressed={isKeyPressed('Backquote')} isPhaseActive={isPhaseActive(0)} />
             <Key size={6}  isKeyPressed={isKeyPressed('Digit1')} isPhaseActive={isPhaseActive(1)}>
             <sup>1</sup>
             </Key>
@@ -47,11 +47,13 @@ export default function KeyBoard({keysPressed,actualPhase, isWrongType}:any){
             <Key size={6}  isKeyPressed={isKeyPressed('Digit0')} isPhaseActive={isPhaseActive(1) }  ><sup>0</sup></Key>
             <Key size={6}  isKeyPressed={isKeyPressed('Minus')} isPhaseActive={isPhaseActive(0)} ><sup>?</sup></Key>
             <Key size={6}  isKeyPressed={isKeyPressed('Equal')} isPhaseActive={isPhaseActive(0)} ><sup>¿</sup></Key>
-            <Key size={6}  isKeyPressed={isKeyPressed('Backspace')} isPhaseActive={isPhaseActive(0)} ><sup>-</sup></Key>
+            <Key size={9}  isKeyPressed={isKeyPressed('Backspace')} isPhaseActive={isPhaseActive(0)} ><sup>-</sup></Key>
             
         </div>
-        <div className={`mt-1 grid aspect-[100/5] grid-cols-87 gap-1 [&>div]:border-2 ${themes[theme!].borderKey}`}>
-            <div className={`${(keysPressed['Tab']) && "bg-red-300"} col-[_span_9] `}/> {/* //Q */}
+        <div className={`mt-1 grid aspect-[100/5] grid-cols-87 `}>
+            <Key size={9}  isKeyPressed={isKeyPressed('Tab')} isPhaseActive={isPhaseActive(0)}>
+                <sup></sup>
+            </Key>
             <Key size={6}  isKeyPressed={isKeyPressed('KeyQ')} isPhaseActive={isPhaseActive(1) || isPhaseActive(3)}>
                 <sup>Q</sup>
             </Key>
@@ -69,8 +71,8 @@ export default function KeyBoard({keysPressed,actualPhase, isWrongType}:any){
             <Key size={6}  isKeyPressed={isKeyPressed('Enter')} isPhaseActive={isPhaseActive(0)} ></Key>
             
         </div>
-        <div className={`mt-1 grid aspect-[100/5] grid-cols-87 gap-1 [&>div]:border-2 ${themes[theme!].borderKey}`}>
-        <Key size={6}  isKeyPressed={isKeyPressed('CapsLock')} isPhaseActive={isPhaseActive(0)} ></Key>
+        <div className={`mt-1 grid aspect-[100/5] grid-cols-87`}>
+        <Key size={12}  isKeyPressed={isKeyPressed('CapsLock')} isPhaseActive={isPhaseActive(0)} ></Key>
         <Key size={6}  isKeyPressed={isKeyPressed('KeyA')} isPhaseActive={isPhaseActive(2) || isPhaseActive(4)}>
             <sup>A</sup>
         </Key>
@@ -83,13 +85,12 @@ export default function KeyBoard({keysPressed,actualPhase, isWrongType}:any){
         <Key size={6}  isKeyPressed={isKeyPressed('KeyK')} isPhaseActive={isPhaseActive(2) || isPhaseActive(4)}  ><sup>K</sup></Key>
         <Key size={6}  isKeyPressed={isKeyPressed('KeyL')} isPhaseActive={isPhaseActive(2) || isPhaseActive(4)}  ><sup>L</sup></Key>
         <Key size={6}  isKeyPressed={isKeyPressed('Semicolon')} isPhaseActive={isPhaseActive(2) || isPhaseActive(4)}  ><sup>Ñ</sup></Key>
-        <Key size={6}  isKeyPressed={isKeyPressed('Quote')} isPhaseActive={isPhaseActive(2) || isPhaseActive(4)}  ><sup></sup></Key>
-        <Key size={6}  isKeyPressed={isKeyPressed('Backslash')} isPhaseActive={isPhaseActive(2) || isPhaseActive(4)}  ><sup></sup></Key>
+        <Key size={6}  isKeyPressed={isKeyPressed('Quote')} isPhaseActive={isPhaseActive(0) }  ><sup></sup></Key>
         <Key size={9}  isKeyPressed={isKeyPressed('Enter')} isPhaseActive={isPhaseActive(0)}  ><sup></sup></Key>
         </div>
-        <div className={`mt-1 grid aspect-[100/5] grid-cols-87 gap-1 [&>div]:border-2 ${themes[theme!].borderKey}`}>
+        <div className={`mt-1 grid aspect-[100/5] grid-cols-87 `}>
         <Key size={9}  isKeyPressed={isKeyPressed('ShiftLeft')} isPhaseActive={isPhaseActive(3) || isPhaseActive(4) || isPhaseActive(5)} ><sup>
-        <Image className={`${themes[theme!].shiftKey}`} src="./icons/shift-key.svg" width="10" height="10" alt='download icon'/>
+        <Image className={`${themes[theme!].shiftKey} ml-[4px]`} src="./icons/shift-key.svg" width="10" height="10" alt='download icon'/>
         </sup></Key>
         <Key size={6}  isKeyPressed={isKeyPressed('IntBackslash')} isPhaseActive={isPhaseActive(0)} ><sup></sup></Key>
         <Key size={6}  isKeyPressed={isKeyPressed('KeyZ')} isPhaseActive={isPhaseActive(2) || isPhaseActive(5)} >
@@ -101,26 +102,26 @@ export default function KeyBoard({keysPressed,actualPhase, isWrongType}:any){
         <Key size={6}  isKeyPressed={isKeyPressed('KeyB')} isPhaseActive={isPhaseActive(2) || isPhaseActive(5)}  ><sup>B</sup></Key>
         <Key size={6}  isKeyPressed={isKeyPressed('KeyN')} isPhaseActive={isPhaseActive(2) || isPhaseActive(5)}  ><sup>N</sup></Key>
         <Key size={6}  isKeyPressed={isKeyPressed('KeyM')} isPhaseActive={isPhaseActive(2) || isPhaseActive(5)}  ><sup>M</sup></Key>
-        <Key size={6}  isKeyPressed={isKeyPressed('Comma')} isPhaseActive={isPhaseActive(2) || isPhaseActive(5)}  ><sup></sup></Key>
-        <Key size={6}  isKeyPressed={isKeyPressed('Period')} isPhaseActive={isPhaseActive(2) || isPhaseActive(5)}  ><sup></sup></Key>
-        <Key size={6}  isKeyPressed={isKeyPressed('Slash')} isPhaseActive={isPhaseActive(2) || isPhaseActive(5)}  ><sup></sup></Key>
-        <div className={`${(keysPressed['ShiftRight'] ) && "bg-red-300"} col-[_span_12]`}/>
+        <Key size={6}  isKeyPressed={isKeyPressed('Comma')} isPhaseActive={isPhaseActive(2) || isPhaseActive(5)}  ><sup>,</sup></Key>
+        <Key size={6}  isKeyPressed={isKeyPressed('Period')} isPhaseActive={isPhaseActive(2) || isPhaseActive(5)}  ><sup>.</sup></Key>
+        <Key size={6}  isKeyPressed={isKeyPressed('Slash')} isPhaseActive={isPhaseActive(0)}  ><sup></sup></Key>
+        <Key size={12}  isKeyPressed={isKeyPressed('ShiftRight')} isPhaseActive={isPhaseActive(0)}  ><sup></sup></Key>
         </div>
-        <div className={`mt-1 grid aspect-[100/5] grid-cols-87 gap-1 [&>div]:border-2 ${themes[theme!].borderKey}`}>
-            <div className={`${(keysPressed['ControlLeft'] ) && "bg-red-300"} col-[_span_6] `}/>
-            <div className={`${(keysPressed['AltLeft'] ) && "bg-red-300"} col-[_span_8] `}/>
-            <div className={`${(keysPressed['MetaLeft'] ) && "bg-red-300"} col-[_span_8] `}/>
-            <div className={`${(keysPressed['Space'] ) && "bg-red-300"} col-[_span_31] `}/>
-            <div className={`${(keysPressed['MetaRight'] ) && "bg-red-300"} col-[_span_8] `}/>
-            <div className={`${(keysPressed['AltRight'] ) && "bg-red-300"} col-[_span_8] `}/>
-            <div className={`${(keysPressed['ArrowLeft'] ) && "bg-red-300"} col-[_span_6] `}/>
-            <div className={`col-[_span_6] flex flex-col  justify-between border-none [&>div]:border-2 ${themes[theme!].borderKey}`}>
-                <div className={`${(keysPressed['ArrowUp'] ) && "bg-red-300"} aspect-[3/1.2]  `}>
-                </div>
-                <div className={`${(keysPressed['ArrowDown'] ) && "bg-red-300"} aspect-[3/1.2]  `}>
-                </div>
+
+        <div className={`mt-1 grid aspect-[100/5] grid-cols-87 `}>
+        <Key size={6}  isKeyPressed={isKeyPressed('ControlLeft')} isPhaseActive={isPhaseActive(0)}  ><sup></sup></Key>
+        <Key size={8}  isKeyPressed={isKeyPressed('AltLeft')} isPhaseActive={isPhaseActive(0)}  ><sup></sup></Key>
+        <Key size={8}  isKeyPressed={isKeyPressed('MetaLeft')} isPhaseActive={isPhaseActive(0)}  ><sup></sup></Key>
+        <Key size={31}  isKeyPressed={isKeyPressed('Space')} isPhaseActive={isPhaseActive(0)}  ><sup></sup></Key>
+        <Key size={8}  isKeyPressed={isKeyPressed('MetaRight')} isPhaseActive={isPhaseActive(0)}  ><sup></sup></Key>
+        <Key size={8}  isKeyPressed={isKeyPressed('AltRight')} isPhaseActive={isPhaseActive(0)}  ><sup></sup></Key>
+        <Key size={6}  isKeyPressed={isKeyPressed('ArrowLeft')} isPhaseActive={isPhaseActive(0)}  ><sup></sup></Key>
+        <div className={`col-[_span_6] flex flex-col  justify-between border-none `}>
+        <Key size={'3/1.2'}  isKeyPressed={isKeyPressed('ArrowUp')} isPhaseActive={isPhaseActive(0)}  ></Key>
+        <Key size={'3/1.2'}  isKeyPressed={isKeyPressed('ArrowDown')} isPhaseActive={isPhaseActive(0)}  ></Key>
             </div>
-            <div className={`${(keysPressed['ArrowRight'] ) && "bg-red-300"} col-[_span_6] `}/>
+        
+        <Key size={6}  isKeyPressed={isKeyPressed('ArrowRight')} isPhaseActive={isPhaseActive(0)}  ><sup></sup></Key>
         </div>
     </div>)
 }

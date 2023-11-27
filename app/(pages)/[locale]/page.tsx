@@ -176,7 +176,7 @@ export  default function Index() {
             </motion.p>}
           </div>
           <div className="py-2 ">
-            <input className={`select:border-none max-w-[90%] rounded-md border-[2px] border-none pl-2 text-[54px] italic focus:outline-none
+            <input className={`select:border-none max-w-[90%] rounded-md border-[2px] border-none pl-2 text-[32px] italic focus:outline-none xl:text-[54px]
              ${actualTheme.caret} ${actualTheme.placeHolderColor} ${actualTheme.inputTextColor} ${actualTheme.inputBgColor}`}
             type="text"
             value={`${inputText}` }
@@ -190,7 +190,7 @@ export  default function Index() {
           </div>
         </div>
 
-        <div className="col-span-24  mt-[54px] min-h-[18rem] px-0 md:col-span-18 md:px-[2.5rem]">
+        <div className="col-span-24  mt-[54px] min-h-[18rem] px-0 md:col-span-15 md:px-[2.5rem] xl:col-span-18">
         <div className='flex items-center gap-2'>
           <span>Ajustes:</span>
           <input  type="range"
@@ -210,7 +210,7 @@ export  default function Index() {
           </div>
         </div>
 
-        <div className="col-span-24 mt-[54px]  hidden md:col-span-6 md:block">
+        <div className="col-span-24 mt-[54px]  hidden  md:col-span-9 md:block xl:col-span-6">
         <main>
             
             <Link href="./happy-font-face.ttf" download>
@@ -223,7 +223,7 @@ export  default function Index() {
           <main className="mt-[56px]">
             <div>
               <div>Gramática</div>
-              <div className="mt-[42px]"><KeyBoard keysPressed={keysPressed} actualPhase={actualPhase} isWrongType={isWrongType}/></div>
+              <div className=""><KeyBoard keysPressed={keysPressed} actualPhase={actualPhase} isWrongType={isWrongType}/></div>
               <div className="py-4">
                 {textsPhases[`textPhase${actualPhase}`]}
                 <div className={isWrongType ? 'animate-fade-in' : 'hidden animate-fade-out'}>¡Introduce la tecla correcta!</div>
