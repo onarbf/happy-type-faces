@@ -15,7 +15,7 @@ export default function KeyBoard({keysPressed,actualPhase, isWrongType}:any){
         return themes[theme!].keyPressed
     };
     return(<div className={`${isWrongType ? 'animate-wiggle' : ''}`}>
-        <div className={`mt-1 grid aspect-[100/3] grid-cols-87 `}>
+        <div className={`mt-1 grid aspect-[100/3] grow grid-cols-87 `}>
         <Key size={9}  isKeyPressed={isKeyPressed('Escape')} isPhaseActive={isPhaseActive(0)} />
         <Key size={6}  isKeyPressed={isKeyPressed('F1')} isPhaseActive={isPhaseActive(0)} />
         <Key size={6}  isKeyPressed={isKeyPressed('F2')} isPhaseActive={isPhaseActive(0)} />
@@ -32,7 +32,7 @@ export default function KeyBoard({keysPressed,actualPhase, isWrongType}:any){
         <Key size={6}  isKeyPressed={isKeyPressed('')} isPhaseActive={isPhaseActive(0)} />
         </div>
         <div className={`mt-1 grid  grid-cols-87`}>
-            <Key size={6}  isKeyPressed={isKeyPressed('Backquote')} isPhaseActive={isPhaseActive(0)} />
+            <Key size={9}  isKeyPressed={isKeyPressed('Backquote')} isPhaseActive={isPhaseActive(0)} />
             <Key size={6}  isKeyPressed={isKeyPressed('Digit1')} isPhaseActive={isPhaseActive(1)}>
             <sup>1</sup>
             </Key>
@@ -47,7 +47,7 @@ export default function KeyBoard({keysPressed,actualPhase, isWrongType}:any){
             <Key size={6}  isKeyPressed={isKeyPressed('Digit0')} isPhaseActive={isPhaseActive(1) }  ><sup>0</sup></Key>
             <Key size={6}  isKeyPressed={isKeyPressed('Minus')} isPhaseActive={isPhaseActive(0)} ><sup>?</sup></Key>
             <Key size={6}  isKeyPressed={isKeyPressed('Equal')} isPhaseActive={isPhaseActive(0)} ><sup>¿</sup></Key>
-            <Key size={9}  isKeyPressed={isKeyPressed('Backspace')} isPhaseActive={isPhaseActive(0)} ><sup>-</sup></Key>
+            <Key size={6}  isKeyPressed={isKeyPressed('Backspace')} isPhaseActive={isPhaseActive(0)} ><sup>-</sup></Key>
             
         </div>
         <div className={`mt-1 grid aspect-[100/5] grid-cols-87 `}>
@@ -102,8 +102,8 @@ export default function KeyBoard({keysPressed,actualPhase, isWrongType}:any){
         <Key size={6}  isKeyPressed={isKeyPressed('KeyB')} isPhaseActive={isPhaseActive(2) || isPhaseActive(5)}  ><sup>B</sup></Key>
         <Key size={6}  isKeyPressed={isKeyPressed('KeyN')} isPhaseActive={isPhaseActive(2) || isPhaseActive(5)}  ><sup>N</sup></Key>
         <Key size={6}  isKeyPressed={isKeyPressed('KeyM')} isPhaseActive={isPhaseActive(2) || isPhaseActive(5)}  ><sup>M</sup></Key>
-        <Key size={6}  isKeyPressed={isKeyPressed('Comma')} isPhaseActive={isPhaseActive(2) || isPhaseActive(5)}  ><sup>,</sup></Key>
-        <Key size={6}  isKeyPressed={isKeyPressed('Period')} isPhaseActive={isPhaseActive(2) || isPhaseActive(5)}  ><sup>.</sup></Key>
+        <Key size={6}  isKeyPressed={isKeyPressed('Comma')} isPhaseActive={isPhaseActive(2) }  ><sup>,</sup></Key>
+        <Key size={6}  isKeyPressed={isKeyPressed('Period')} isPhaseActive={isPhaseActive(2) }  ><sup>.</sup></Key>
         <Key size={6}  isKeyPressed={isKeyPressed('Slash')} isPhaseActive={isPhaseActive(0)}  ><sup></sup></Key>
         <Key size={12}  isKeyPressed={isKeyPressed('ShiftRight')} isPhaseActive={isPhaseActive(0)}  ><sup></sup></Key>
         </div>

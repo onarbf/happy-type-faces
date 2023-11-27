@@ -46,7 +46,8 @@ export  default function Index() {
   }
   const acceptedValues = {
     phase1: [keys.q,keys.w,keys.e,keys.r,keys.t,keys.y,keys.u,keys.i,keys.o,keys.p,keys[1],keys[2],keys[3],keys[4],keys[5],keys[6],keys[7],keys[8],keys[9],keys[0]],
-    phase2: [keys.a,keys.s,keys.d,keys.f,keys.g,keys.h,keys.j,keys.k,keys.l,keys.ñ,keys.z,keys.x,keys.c,keys.v,keys.b,keys.n,keys.m,keys[8],keys[9],keys[0]],
+    phase2: [keys.a,keys.s,keys.d,keys.f,keys.g,keys.h,keys.j,keys.k,keys.l,keys.ñ,keys.z,keys.x,keys.c,keys.v,keys.b,keys.n,keys.m,keys[8],keys[9],keys[0],keys['.'],keys[',']],
+    phase5: [keys.a,keys.s,keys.d,keys.f,keys.g,keys.h,keys.j,keys.k,keys.l,keys.ñ,keys.z,keys.x,keys.c,keys.v,keys.b,keys.n,keys.m,keys[8],keys[9],keys[0]]
   }
   useEffect(() => {
     let timer: any;
@@ -85,7 +86,7 @@ export  default function Index() {
       updatePhase()
       return
     }
-    if(actualPhase === 5 && value=== value.toUpperCase() && acceptedValues.phase2.slice(10,acceptedValues.phase2.length-1).includes(value.toLowerCase())){  
+    if(actualPhase === 5 && value=== value.toUpperCase() && acceptedValues.phase5.slice(10,acceptedValues.phase2.length-1).includes(value.toLowerCase())){  
       setInputText(prevInput=>(prevInput + value));
       updatePhase()
       return
