@@ -17,21 +17,21 @@ const libreCaslonText = Libre_Caslon_Text({
 })
 
 const happyTypeFaces = localFont({
-  src: '../../../public/happy-font-face.ttf',
+  src: '../../public/happy-font-face.ttf',
   display: 'swap',
   variable: '--happy-type-faces',
 })
 
 
 //generating metadata 
-export { generateMetadata } from '@/app/utils/metadata';
+/* export { generateMetadata } from '@/app/utils/metadata';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({locale}));
-}
+} */
 
 export default async function Layout({children, params: {locale}}: Layout) {
-  if (!locales.includes(locale as any)) notFound();
+/*   if (!locales.includes(locale as any)) notFound(); */
   return (
     <html lang={locale} className={`text-[20px] ${happyTypeFaces.variable } ${libreCaslonText.variable} ${libreCaslonText.className}`}>
       <body className="min-h-[100vh] flex-col border">
