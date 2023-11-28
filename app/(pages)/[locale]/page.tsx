@@ -8,8 +8,9 @@ import { textsPhases } from '@/app/context/textPhases';
 import { setCookie } from '@/app/utils/cookies';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { motion } from "framer-motion"
+import Loading from '../loading';
 
 
 export  default function Index() {
@@ -166,6 +167,7 @@ export  default function Index() {
         <SideBar/>
       </div>
       <div className="col-span-21 grid grid-cols-24  md:col-span-21">
+        <Suspense fallback={<Loading/>}>
         <div className="col-span-24 min-h-[6rem] md:px-[2.5rem]">
           <div className="min-h-[48px]">
           {inputText.length > 0 && <motion.p className={`pt-3`}
@@ -190,7 +192,7 @@ export  default function Index() {
             </div>
           </div>
         </div>
-
+        </Suspense>
         <div className="col-span-24  mt-[54px] min-h-[18rem] px-0 md:col-span-15 md:px-[2.5rem] xl:col-span-18">
         <div className='flex items-center gap-2'>
           <span>Ajustes:</span>
