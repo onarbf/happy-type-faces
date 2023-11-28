@@ -76,7 +76,7 @@ export  default function Index() {
       return
     }
 
-    if(actualPhase === 3 && value === value.toUpperCase() && acceptedValues.phase1.slice(0,10).includes(value.toLowerCase())){  
+    if(actualPhase === 3 && value === value.toUpperCase() && acceptedValues.phase1.slice(0,11).includes(value.toLowerCase())){  
       setInputText(prevInput=>(prevInput + value));
       updatePhase()
       return
