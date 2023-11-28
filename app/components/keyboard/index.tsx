@@ -15,8 +15,11 @@ export default function KeyBoard({keysPressed,actualPhase, isWrongType}:any){
         return themes[theme!].keyPressed
     };
     return(<div className={`${isWrongType ? 'animate-wiggle' : ''}`}>
-        <div className={`mt-1 grid aspect-[100/3] grow grid-cols-87 `}>
-        <Key size={9}  isKeyPressed={isKeyPressed('Escape')} isPhaseActive={isPhaseActive(0)} />
+        <div className={`  mt-1 grid aspect-[100/3] grow grid-cols-87 `}>
+        {/* <Key size={9}  isKeyPressed={isKeyPressed('Escape')} isPhaseActive={isPhaseActive(0)} /> */}
+        <div className={`col-[_span_9] mx-[1px] flex`}>
+            <div className={`${themes[theme!].borderKey}  ${isPhaseActive} ${isKeyPressed} grow border-2  pt-[8px] text-center text-[18px] leading-[12px]`}></div>
+        </div>
         <Key size={6}  isKeyPressed={isKeyPressed('F1')} isPhaseActive={isPhaseActive(0)} />
         <Key size={6}  isKeyPressed={isKeyPressed('F2')} isPhaseActive={isPhaseActive(0)} />
         <Key size={6}  isKeyPressed={isKeyPressed('F3')} isPhaseActive={isPhaseActive(0)} />
