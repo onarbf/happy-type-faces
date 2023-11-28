@@ -35,14 +35,13 @@ export default async function Layout({children, params: {locale}}: Layout) {
   return (
     <html lang={locale} className={`text-[20px] ${happyTypeFaces.variable } ${libreCaslonText.variable} ${libreCaslonText.className}`}>
       <body className="min-h-[100vh] flex-col border">
-        work in progress
-        {/* <GlobalContextProvider>
+        <GlobalContextProvider>
           <ThemeProvider>
             <Header/>
             {children}
            <Footer/>
           </ThemeProvider>
-        </GlobalContextProvider> */}
+        </GlobalContextProvider>
       </body>
       
     </html>
