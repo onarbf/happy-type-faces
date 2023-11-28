@@ -1,6 +1,6 @@
 const withNextIntl = require('next-intl/plugin')();
  
-module.exports = withNextIntl({
+module.exports = {
     async headers () {
         return [
           {
@@ -19,4 +19,4 @@ module.exports = withNextIntl({
           }
         ]
       }
-});
+}

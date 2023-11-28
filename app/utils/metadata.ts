@@ -17,13 +17,12 @@ export async function generateMetadata(
     // read the custom x-url header
     const pathname = headersList.get('x-url') || "";
     const path = getPathByPathName(pathname);
-    const t = await getTranslations(`Index.Metadata`);
-    const title = t('title')
+    const title = 'title'
     return {
       title: {
         default: title,
       },
-      description:t('description'),
+      description:'description',
 /*       robots: { index: true, follow: true },
       manifest: `/favicon/site.webmanifest`, */
       // authors: [
