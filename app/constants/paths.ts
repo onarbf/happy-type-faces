@@ -1,4 +1,5 @@
 export const paths: Record<string,string>  = {
     '/': 'Home',
-    '/about' : 'About'
+    '/about' : 'About',
+    '/test' : 'About'
 }
