@@ -8,7 +8,7 @@ import Image from "next/image";
 
 export default function Header(){
     const [isOpen, setIsOpen] = useState(false);
-    const {theme} = useGlobalContext();
+    const {theme} = useGlobalContext()
     return(<header className={`h-[6vh] px-[2.5vw] pt-[2.5vh] text-[1.3rem] font-bold ${themes[theme!].textColor}`}>
             <div className="flex items-center justify-between">
                 <div className="">
