@@ -39,7 +39,7 @@ export default async function Layout({children, params: {locale}}: Layout) {
           <ThemeProvider>
             <Header/>
             {children}
-           <Footer/>
+             <Footer/>
           </ThemeProvider>
         </GlobalContextProvider>
       </body>

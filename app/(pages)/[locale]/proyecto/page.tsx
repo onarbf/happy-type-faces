@@ -10,7 +10,7 @@ import ligaduras2 from '@/app/animations/ligaduras02.json'
 import kerning from '@/app/animations/kerning.json'
 import { motion } from "framer-motion"
 import { Suspense } from "react";
-import Loading from "../../loading";
+import Loading from "../loading";
 
 export default function Proyecto() {
   const variants = {

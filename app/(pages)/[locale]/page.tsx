@@ -10,7 +10,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Suspense, useEffect, useState } from 'react';
 import { motion } from "framer-motion"
-import Loading from '../loading';
+import Loading from './loading';
 
 
 export  default function Index() {
