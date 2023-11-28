@@ -23,6 +23,7 @@ const happyTypeFaces = localFont({
 })
 
 
+
 //generating metadata 
 /* export { generateMetadata } from '@/app/utils/metadata';
 
