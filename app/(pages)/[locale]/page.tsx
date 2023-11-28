@@ -19,7 +19,7 @@ export  default function Index() {
   const [keysPressed, setKeysPressed] = useState({});
   const [actualPhase, setActualPhase] = useState(1);
   const [isWrongType, setIsWrongType] = useState(false);
-  const [glyphSize, setGlyphSize] = useState(270);
+  const [glyphSize, setGlyphSize] = useState(350);
 
   const handleGlyphSize = (event: any) => {
     const newGlyphSize = parseInt(event.target.value, 10);
@@ -216,11 +216,11 @@ export  default function Index() {
         <div className="col-span-24 mt-[54px]  hidden  md:col-span-9 md:block xl:col-span-6">
         <main>
             
-            <Link href="./happy-font-face.ttf" download>
+            <a href="./happy-font-face.ttf" download>
               <div className="flex gap-2 md:items-center">
                 Descargar <Image className={`${themes[theme!].glyphFilter}`} src="./icons/download-icon.svg" width="14" height="14" alt='download icon'/>
                </div>
-            </Link>
+            </a>
             
           </main>
           <main className="mt-[56px]">

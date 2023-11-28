@@ -17,12 +17,12 @@ export async function generateMetadata(
     // read the custom x-url header
     const pathname = headersList.get('x-url') || "";
     const path = getPathByPathName(pathname);
-    const title = 'title'
+    const title = 'Happy Type Faces'
     return {
       title: {
         default: title,
       },
-      description:'description',
+      description:'A metatypography to make cool faces!',
 /*       robots: { index: true, follow: true },
       manifest: `/favicon/site.webmanifest`, */
       // authors: [
