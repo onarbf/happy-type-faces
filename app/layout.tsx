@@ -17,7 +17,7 @@ const libreCaslonText = Libre_Caslon_Text({
 })
 
 const happyTypeFaces = localFont({
-  src: '../../public/happy-font-face.ttf',
+  src: '../public/happy-font-face.ttf',
   display: 'swap',
   variable: '--happy-type-faces',
 })
