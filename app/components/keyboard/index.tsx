@@ -8,7 +8,7 @@ export default function KeyBoard({keysPressed,actualPhase, isWrongType}:any){
     const {theme} = useGlobalContext();
     const isPhaseActive = (phase:number)=>{
         if(phase !== 0)
-        return (phase === actualPhase) && themes[theme!].highlightedKey;
+        return (phase === actualPhase) && themes[theme!] ? themes[theme!].highlightedKey: '!bg-pink-100 !text-pinky';
     }
     const isKeyPressed = (key:string)=>{
         if(keysPressed[key])
