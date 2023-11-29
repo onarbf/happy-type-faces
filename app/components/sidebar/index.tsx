@@ -34,7 +34,7 @@ export default function SideBar(){
             <Link href="/especimen">
                 <div className="flex items-center justify-between  py-3">
                    <span>Especimen</span>
-                   <div className={`flex min-h-[18px] min-w-[18px] items-center justify-center rounded-full border ${themes[theme!].borderColor}`}>
+                   <div className={`flex min-h-[18px] min-w-[18px] items-center justify-center rounded-full border ${themes[theme!] ?  themes[theme!].borderColor: 'border-pinky'}`}>
                    {pathname === '/especimen' && <div className={`min-h-[14px] min-w-[14px] rounded-full ${themes[theme!] ? themes[theme!].bgCheckboxColor: 'bg-pinky'}`}></div>}
                    </div>
                 </div>
