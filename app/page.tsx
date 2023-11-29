@@ -197,7 +197,7 @@ export  default function Index() {
         <div className='flex items-center gap-2'>
           <span>Ajustes:</span>
           <input  type="range"
-          className={`h-[2px] appearance-none rounded-xl ${actualTheme.rangeStyle}`}
+          className={`h-[2px] appearance-none rounded-xl ${actualTheme ? actualTheme.rangeStyle: 'bg-black accent-pinky'}`}
         id="range"
         name="range"
         min={100}
