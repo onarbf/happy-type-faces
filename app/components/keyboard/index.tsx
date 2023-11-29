@@ -90,7 +90,7 @@ export default function KeyBoard({keysPressed,actualPhase, isWrongType}:any){
         </div>
         <div className={`mt-1 grid aspect-[100/5] grid-cols-87 `}>
         <Key size={9}  isKeyPressed={isKeyPressed('ShiftLeft')} isPhaseActive={isPhaseActive(3) || isPhaseActive(4) || isPhaseActive(5)} ><sup>
-        <Image className={`${themes[theme!].shiftKey} ml-[4px]`} src="./icons/shift-key.svg" width="10" height="10" alt='download icon'/>
+        <Image className={`${themes[theme!] ? themes[theme!].shiftKey: 'white-filter'} ml-[4px]`} src="./icons/shift-key.svg" width="10" height="10" alt='download icon'/>
         </sup></Key>
         <Key size={6}  isKeyPressed={isKeyPressed('IntBackslash')} isPhaseActive={isPhaseActive(0)} ><sup></sup></Key>
         <Key size={6}  isKeyPressed={isKeyPressed('KeyZ')} isPhaseActive={isPhaseActive(2) || isPhaseActive(5)} >
