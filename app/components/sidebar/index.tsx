@@ -15,27 +15,27 @@ export default function SideBar(){
                 <div className="flex items-center justify-between  py-3">
                    <span>Prueba</span>
                    <div className={`flex min-h-[18px] min-w-[18px] items-center justify-center rounded-full border`}>
-                        {pathname === '/' && <div className={`min-h-[14px] min-w-[14px] rounded-full  ${themes[theme!].bgCheckboxColor}`}></div>}
+                        {pathname === '/' && <div className={`min-h-[14px] min-w-[14px] rounded-full  ${themes[theme!] ? themes[theme!].bgCheckboxColor : 'bg-pinky'}`}></div>}
                    </div>
                 </div>
             </Link>
             </li>
-            <li className={`border-t-[1px] ${themes[theme!].borderColor} first:border-t-[0]`}>
+            <li className={`border-t-[1px] ${themes[theme!] ? themes[theme!].borderColor: 'border-pinky'} first:border-t-[0]`}>
             <Link href="/proyecto">
                 <div className="flex items-center justify-between  py-3">
                    <span>Proyecto</span>
                    <div className={`flex min-h-[18px] min-w-[18px] items-center justify-center rounded-full border ${themes[theme!].borderColor}`}>
-                   {pathname === '/proyecto' && <div className={`min-h-[14px] min-w-[14px]  rounded-full ${themes[theme!].bgCheckboxColor}`}></div>}
+                   {pathname === '/proyecto' && <div className={`min-h-[14px] min-w-[14px]  rounded-full ${themes[theme!] ? themes[theme!].bgCheckboxColor: 'bg-pinky'}`}></div>}
                    </div>
                 </div>
                 </Link>
             </li>
-            <li className={`border-t-[1px] ${themes[theme!].borderColor} first:border-t-[0]`}>
+            <li className={`border-t-[1px] ${themes[theme!] ? themes[theme!].borderColor: 'border-pinky'} first:border-t-[0]`}>
             <Link href="/especimen">
                 <div className="flex items-center justify-between  py-3">
                    <span>Especimen</span>
                    <div className={`flex min-h-[18px] min-w-[18px] items-center justify-center rounded-full border ${themes[theme!].borderColor}`}>
-                   {pathname === '/especimen' && <div className={`min-h-[14px] min-w-[14px] rounded-full ${themes[theme!].bgCheckboxColor}`}></div>}
+                   {pathname === '/especimen' && <div className={`min-h-[14px] min-w-[14px] rounded-full ${themes[theme!] ? themes[theme!].bgCheckboxColor: 'bg-pinky'}`}></div>}
                    </div>
                 </div>
             </Link>

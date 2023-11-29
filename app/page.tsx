@@ -180,7 +180,7 @@ export  default function Index() {
           </div>
           <div className="py-2 ">
             <input className={`select:border-none max-w-[90%] rounded-md border-[2px] border-none pl-2 text-[32px] italic focus:outline-none xl:text-[54px]
-             ${actualTheme.caret} ${actualTheme.placeHolderColor} ${actualTheme.inputTextColor} ${actualTheme.inputBgColor}`}
+             ${actualTheme ? actualTheme.caret : 'caret-pinky'} ${actualTheme ? actualTheme.placeHolderColor : 'placeholder:text-pinky-300'} ${actualTheme ? actualTheme.inputTextColor : 'text-pinky'} ${actualTheme ? actualTheme.inputBgColor:'text-pnky'}`}
             type="text"
             value={`${inputText}` }
             placeholder='Escribe aquí tu texto'
@@ -206,7 +206,7 @@ export  default function Index() {
         value={glyphSize}
         onChange={handleGlyphSize}
         />
-          <Image alt="change_theme" src={'/icons/contrast-icon.svg'} className={actualTheme.glyphFilter} width={16} height={16} onClick={toggleTheme} />
+          <Image alt="change_theme" src={'/icons/contrast-icon.svg'} className={actualTheme ? actualTheme.glyphFilter : 'pink-filter'} width={16} height={16} onClick={toggleTheme} />
         </div>
         <div className={` mt-[54px] max-w-[100%] break-all text-center font-happy md:text-left`} style={{fontSize: glyphSize}}>
           {inputText}
@@ -218,7 +218,7 @@ export  default function Index() {
             
             <a href="./happy-font-face.ttf" download>
               <div className="flex gap-2 md:items-center">
-                Descargar <Image className={`${themes[theme!].glyphFilter}`} src="./icons/download-icon.svg" width="14" height="14" alt='download icon'/>
+                Descargar <Image className={`${themes[theme!] ? themes[theme!].glyphFilter : 'pink-filter'}`} src="./icons/download-icon.svg" width="14" height="14" alt='download icon'/>
                </div>
             </a>
             
