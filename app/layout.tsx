@@ -37,7 +37,7 @@ export function generateStaticParams() {
 export default async function Layout({children, params: {locale}}: Layout) {
 /*   if (!locales.includes(locale as any)) notFound(); */
   return (
-    <html lang={locale} className={`text-[20px] ${happyTypeFaces.variable } ${libreCaslonText.variable} ${libreCaslonText.className}`}>
+    <html lang={locale} className={`text-[16px] xl:text-[20px] ${happyTypeFaces.variable } ${libreCaslonText.variable} ${libreCaslonText.className}`}>
       <body className="min-h-[100vh] flex-col border">
         <GlobalContextProvider>
           <ThemeProvider>

@@ -8,9 +8,9 @@ import themes from '@/app/constants/themes';
 export default function SideBar(){
     const {theme} = useGlobalContext();
     const pathname = usePathname()
-    return <main>
+    return <main className="text-[16px] xl:text-[20px] ">
         <ul>
-            <li className="border-t-[1px] border-[] first:border-t-[0]">
+            <li className=" border-t-[1px]  first:border-t-[0]">
             <Link href="/">
                 <div className="flex items-center justify-between  py-3">
                    <span>Prueba</span>
