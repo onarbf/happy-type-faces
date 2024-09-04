@@ -102,7 +102,20 @@ export  default function Index() {
     
   }
 
-  const handleKeyDown = (event: any) => {
+  const handleKeyDown = (event: KeyboardEvent) => {
+    console.log(event);
+    
+    if (event.key.length === 1) {
+      // Si la tecla presionada es un solo carácter
+      handleInput(event.key);
+    } else if (event.key === 'Backspace') {
+      setInputText(prevInput => prevInput.slice(0, -1));
+      backPhase();
+    }
+  }
+
+  const handleKeyDownOld = (event: any) => {
+    console.log(event)
     event.preventDefault();
     if(event.nativeEvent.inputType === 'insertText'){
       if(event.nativeEvent.data.length === 1){
@@ -150,12 +163,14 @@ export  default function Index() {
  
     // Add event listener
     window.addEventListener('keydown', handleVirtualKeyDown);
+    window.addEventListener('keydown', handleKeyDown);
     window.addEventListener('keyup',  handleVirtualKeyUp);
 
     // Remove event listener on cleanup
     return () =>{ 
       window.removeEventListener('keydown', handleVirtualKeyDown);
-      window.addEventListener('keyup',  handleVirtualKeyUp);
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keyup',  handleVirtualKeyUp);
     }
   },[actualPhase])
 
@@ -188,7 +203,7 @@ export  default function Index() {
             type="text"
             value={`${inputText}` }
             placeholder='Escribe aquí tu texto'
-            onInput={handleKeyDown}
+            /* onInput={handleKeyDown} */
             />
             <div className="mt-4 block md:hidden">
               {textsPhases[`textPhaseMobile${actualPhase}`]}
