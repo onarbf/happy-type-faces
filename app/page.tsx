@@ -60,7 +60,6 @@ export  default function Index() {
 
   useEffect(()=>{
     if(window.innerWidth < 600){
-      console.log('worked')
       setGlyphSize(()=>150)
     }
   },[])
@@ -69,7 +68,11 @@ export  default function Index() {
       return
     }
     if(actualPhase === 1 && acceptedValues.phase1.includes(value)){
-      setInputText(prevInput=>(prevInput + value));
+      setInputText((prevInput)=>{
+        const finalValue = prevInput + value;
+        return finalValue.replace(/(.{5})/g, "$1 ").trim();
+
+      });
       updatePhase()
       
       return
@@ -109,7 +112,13 @@ export  default function Index() {
       // Si la tecla presionada es un solo carácter
       handleInput(event.key);
     } else if (event.key === 'Backspace') {
-      setInputText(prevInput => prevInput.slice(0, -1));
+      setInputText(prevInput => {
+        if (prevInput.slice(-1) === '\b' || prevInput.slice(-1)  === ' ') {
+          return prevInput.slice(0, -2);
+        } else {
+          return prevInput.slice(0, -1);
+        }
+      });
       backPhase();
     }
   }
