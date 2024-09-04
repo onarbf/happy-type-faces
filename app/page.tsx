@@ -70,7 +70,7 @@ export  default function Index() {
     if(actualPhase === 1 && acceptedValues.phase1.includes(value)){
       setInputText((prevInput)=>{
         const finalValue = prevInput + value;
-        return finalValue.replace(/(.{5})/g, "$1 ").trim();
+        return finalValue.replace(/\S{5}(?=\S)/g, "$& ").trim();
 
       });
       updatePhase()
@@ -106,7 +106,6 @@ export  default function Index() {
   }
 
   const handleKeyDown = (event: KeyboardEvent) => {
-    console.log(event);
     
     if (event.key.length === 1) {
       // Si la tecla presionada es un solo carácter
@@ -236,7 +235,7 @@ export  default function Index() {
         />
           <Image alt="change_theme" src={'/icons/contrast-icon.svg'} className={actualTheme ? actualTheme.glyphFilter : 'pink-filter'} width={16} height={16} onClick={toggleTheme} />
         </div>
-        <div className={` max-w-[100%] break-all text-center font-happy md:text-left md:mt-[54px] `} style={{fontSize: glyphSize}}>
+        <div className={` max-w-[100%] text-center font-happy md:text-left md:mt-[54px] whitespace-nowrap`} style={{fontSize: glyphSize}}>
           {inputText}
           </div>
         </div>

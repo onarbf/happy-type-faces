@@ -34,9 +34,9 @@ export default function Especimen() {
                         Tu navegador no soporta videos HTML5.
                     </video>
                 </div>
-                <div className="col-span-24 mt-8 max-w-[100vw]">
+                <div className="col-span-24 mt-8 max-w-[100vw] flex items-center justify-center">
                     {/* <Image src="./media/especimen_catalogo.svg" height={300} width={300} className="h-[100%] w-[100%]" alt="especimen-catalogo"/> */}
-                    <p className="max-w-[90%] text-center font-happy text-[160px] md:max-w-[100%] md:text-[270px]">
+                    <p className="max-w-[90%] text-center font-happy text-[120px] md:max-w-[100%] md:text-[270px]">
                     8kIÑM ynnYJJZ ogRHM 
 6hWFFZ 4fEDDV tgIGX
 7jEHM 2dQLC 2zYDDV

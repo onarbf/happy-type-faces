@@ -10,11 +10,11 @@ export default function SideBar(){
     const pathname = usePathname()
     return <main className="text-[16px] xl:text-[20px] ">
         <ul>
-            <li className=" border-t-[1px]  first:border-t-[0]">
+            <li className={`border-t-[1px] ${themes[theme!] ? themes[theme!].borderColor: 'border-pinky'} first:border-t-[0]`}>
             <Link href="/">
                 <div className="flex items-center justify-between  py-3">
                    <span>Prueba</span>
-                   <div className={`flex min-h-[18px] min-w-[18px] items-center justify-center rounded-full border`}>
+                   <div className={`flex min-h-[18px] min-w-[18px] items-center justify-center rounded-full border ${themes[theme!] ? themes[theme!].borderColor: 'border-pinky'}`}>
                         {pathname === '/' && <div className={`min-h-[14px] min-w-[14px] rounded-full  ${themes[theme!] ? themes[theme!].bgCheckboxColor : 'bg-pinky'}`}></div>}
                    </div>
                 </div>
