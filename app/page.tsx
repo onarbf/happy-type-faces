@@ -7,7 +7,6 @@ import { useGlobalContext } from '@/app/context/store';
 import { textsPhases } from '@/app/context/textPhases';
 import { setCookie } from '@/app/utils/cookies';
 import Image from 'next/image';
-import Link from 'next/link';
 import { Suspense, useEffect, useState } from 'react';
 import { motion } from "framer-motion"
 import Loading from './loading';
@@ -59,6 +58,12 @@ export  default function Index() {
     return () => clearTimeout(timer); // Limpiar el timer
   }, [isWrongType]);
 
+  useEffect(()=>{
+    if(window.innerWidth < 600){
+      console.log('worked')
+      setGlyphSize(()=>150)
+    }
+  },[])
   const handleInput = (value: any)=>{
     if(value === undefined){
       return
@@ -99,7 +104,6 @@ export  default function Index() {
 
   const handleKeyDown = (event: any) => {
     event.preventDefault();
-    console.log(event)
     if(event.nativeEvent.inputType === 'insertText'){
       if(event.nativeEvent.data.length === 1){
         handleInput(event.nativeEvent.data)
@@ -162,14 +166,14 @@ export  default function Index() {
   animate="visible"
   variants={variants}
   transition={{ duration: 0.8 }}>
-    <div className="mt-[3rem] grid w-[100%] gap-4 md:grid-cols-24">
+    <div className="mt-[0.2rem] grid w-[100%] gap-4 md:grid-cols-24">
       <div className="col-span-21 hidden md:col-span-3 md:block">
         <SideBar/>
       </div>
       <div className="col-span-21 grid grid-cols-24  md:col-span-21">
         <Suspense fallback={<Loading/>}>
         <div className="col-span-24 min-h-[6rem] md:px-[2.5rem]">
-          <div className="min-h-[48px]">
+          <div className=" min-h-[16px] md:min-h-[48px]">
           {inputText.length > 0 && <motion.p className={`pt-3`}
             initial="hidden"
             animate="visible"
@@ -179,7 +183,7 @@ export  default function Index() {
             </motion.p>}
           </div>
           <div className="py-2 ">
-            <input className={`select:border-none max-w-[90%] rounded-md border-[2px] border-none pl-2 text-[32px] italic focus:outline-none xl:text-[54px]
+            <input className={`select:border-none max-w-[90%] rounded-md border-[2px] border-none pl-2 text-[24px] md:text-[32px] italic focus:outline-none xl:text-[54px]
              ${actualTheme ? actualTheme.caret : 'caret-pinky'} ${actualTheme ? actualTheme.placeHolderColor : 'placeholder:text-pinky-300'} ${actualTheme ? actualTheme.inputTextColor : 'text-pinky'} ${actualTheme ? actualTheme.inputBgColor:'text-pnky'}`}
             type="text"
             value={`${inputText}` }
@@ -193,7 +197,7 @@ export  default function Index() {
           </div>
         </div>
         </Suspense>
-        <div className="col-span-24  mt-[54px] min-h-[18rem] px-0 md:col-span-15 md:px-[2.5rem] xl:col-span-18">
+        <div className="col-span-24  mt-[16px] md:mt-[54px] min-h-[18rem] px-0 md:col-span-15 md:px-[2.5rem] xl:col-span-18">
         <div className='flex items-center gap-2'>
           <span>Ajustes:</span>
           <input  type="range"
@@ -208,7 +212,7 @@ export  default function Index() {
         />
           <Image alt="change_theme" src={'/icons/contrast-icon.svg'} className={actualTheme ? actualTheme.glyphFilter : 'pink-filter'} width={16} height={16} onClick={toggleTheme} />
         </div>
-        <div className={` mt-[54px] max-w-[100%] break-all text-center font-happy md:text-left`} style={{fontSize: glyphSize}}>
+        <div className={` max-w-[100%] break-all text-center font-happy md:text-left md:mt-[54px] `} style={{fontSize: glyphSize}}>
           {inputText}
           </div>
         </div>
