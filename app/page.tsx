@@ -121,7 +121,7 @@ export  default function Index() {
       backPhase();
     }
   }
-
+/* 
   const handleKeyDownOld = (event: any) => {
     console.log(event)
     event.preventDefault();
@@ -136,7 +136,7 @@ export  default function Index() {
         return prevInput.slice(0,-1)});
       backPhase();
     } 
-  };
+  }; */
 
   const updatePhase = ()=>{
     if(actualPhase === 5){
@@ -165,23 +165,35 @@ export  default function Index() {
   const handleVirtualKeyUp = (event:any)=>{
     setKeysPressed(prevKeys => ({ ...prevKeys, [event.code]: false }));
   }
-
+  const handleKeyboardInput = (event: Event) => {
+    const inputElement = event.target as HTMLInputElement;
+    const newValue = inputElement.value;
+    const lastChar = newValue.slice(-1);
+  
+    if (lastChar) {
+      handleInput(lastChar);
+      // Limpiar el campo de entrada después de procesar el carácter
+      inputElement.value = '';
+    }
+  };
 
   useEffect(() => {
- 
-    // Add event listener
+    const inputElement = document.getElementById('virtualKeyboardInput') as HTMLInputElement;
+  
+    // Add event listeners
+    inputElement.addEventListener('input', handleKeyboardInput);
     window.addEventListener('keydown', handleVirtualKeyDown);
     window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('keyup',  handleVirtualKeyUp);
-
-    // Remove event listener on cleanup
-    return () =>{ 
+    window.addEventListener('keyup', handleVirtualKeyUp);
+  
+    // Remove event listeners on cleanup
+    return () => {
+      inputElement.removeEventListener('input', handleKeyboardInput);
       window.removeEventListener('keydown', handleVirtualKeyDown);
       window.removeEventListener('keydown', handleKeyDown);
-      window.removeEventListener('keyup',  handleVirtualKeyUp);
-    }
-  },[actualPhase])
-
+      window.removeEventListener('keyup', handleVirtualKeyUp);
+    };
+  }, [actualPhase]);
 
   return (
   <motion.section className={`mx-[2.5vw] grow`}
@@ -197,6 +209,12 @@ export  default function Index() {
         <Suspense fallback={<Loading/>}>
         <div className="col-span-24 min-h-[6rem] md:px-[2.5rem]">
           <div className=" min-h-[16px] md:min-h-[48px]">
+          <input
+  id="virtualKeyboardInput"
+  type="text"
+  style={{ position: 'absolute', opacity: 0, pointerEvents: 'none' }}
+  autoFocus
+/>
           {inputText.length > 0 && <motion.p className={`pt-3`}
             initial="hidden"
             animate="visible"
