@@ -105,12 +105,14 @@ export  default function Index() {
     
   }
 
-  const handleKeyDown = (event: KeyboardEvent) => {
-    
-    if (event.key.length === 1) {
+  
+
+  const handleKeyDown = (event: InputEvent) => {
+    console.log('INPUT', event)
+    if (event.data && event.data.length === 1) {
       // Si la tecla presionada es un solo carácter
-      handleInput(event.key);
-    } else if (event.key === 'Backspace') {
+      handleInput(event.data);
+    } else if (event.inputType === 'deleteContentBackward') {
       setInputText(prevInput => {
         if (prevInput.slice(-1) === '\b' || prevInput.slice(-1)  === ' ') {
           return prevInput.slice(0, -2);
@@ -178,19 +180,17 @@ export  default function Index() {
   };
 
   useEffect(() => {
-    const inputElement = document.getElementById('virtualKeyboardInput') as HTMLInputElement;
+    const inputElement = document.getElementById('mainInput') as HTMLInputElement;
   
     // Add event listeners
-    inputElement.addEventListener('input', handleKeyboardInput);
+    inputElement.addEventListener('input', handleKeyDown as EventListener);
     window.addEventListener('keydown', handleVirtualKeyDown);
-    window.addEventListener('keydown', handleKeyDown);
     window.addEventListener('keyup', handleVirtualKeyUp);
   
     // Remove event listeners on cleanup
     return () => {
-      inputElement.removeEventListener('input', handleKeyboardInput);
+      inputElement.removeEventListener('input', handleKeyDown as EventListener);
       window.removeEventListener('keydown', handleVirtualKeyDown);
-      window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('keyup', handleVirtualKeyUp);
     };
   }, [actualPhase]);
@@ -227,6 +227,7 @@ export  default function Index() {
             <input className={`select:border-none max-w-[90%] rounded-md border-[2px] border-none pl-2 text-[24px] md:text-[32px] italic focus:outline-none xl:text-[54px]
              ${actualTheme ? actualTheme.caret : 'caret-pinky'} ${actualTheme ? actualTheme.placeHolderColor : 'placeholder:text-pinky-300'} ${actualTheme ? actualTheme.inputTextColor : 'text-pinky'} ${actualTheme ? actualTheme.inputBgColor:'text-pnky'}`}
             type="text"
+            id='mainInput'
             value={`${inputText}` }
             placeholder='Escribe aquí tu texto'
             /* onInput={handleKeyDown} */
